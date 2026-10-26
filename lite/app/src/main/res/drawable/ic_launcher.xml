@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 19 不支持 adaptive icon，也不需要二进制资源：layer-list 画得出一个干净图标 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <gradient
+                android:angle="270"
+                android:endColor="#FF2C5364"
+                android:startColor="#FF0F2027" />
+        </shape>
+    </item>
+
+    <item
+        android:bottom="14dp"
+        android:left="14dp"
+        android:right="14dp"
+        android:top="14dp">
+        <shape android:shape="oval">
+            <solid android:color="#FFE9C46A" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AerialClean</string>
+    <string name="launch_failed">无法启动该应用</string>
+    <string name="app_info_failed">无法打开应用信息</string>
+    <string name="action_launch">启动</string>
+    <string name="action_add_dock">加到固定栏</string>
+    <string name="action_remove_dock">从固定栏移除</string>
+    <string name="action_app_info">应用信息</string>
+    <string name="action_hide">隐藏</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_close">关闭</string>
+    <string name="settings_columns">列数：%1$d</string>
+    <string name="settings_columns_title">列数</string>
+    <string name="settings_dock_count">固定栏槽位：%1$d</string>
+    <string name="settings_dock_count_title">固定栏槽位</string>
+    <string name="settings_slots_option">%1$d 个</string>
+    <string name="settings_clock_on">显示时钟：开</string>
+    <string name="settings_clock_off">显示时钟：关</string>
+    <string name="settings_hidden">已隐藏应用：%1$d</string>
+    <string name="settings_hidden_title">已隐藏应用</string>
+    <string name="settings_hidden_empty">没有隐藏的应用</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- API 19 没有 Material 主题，Holo 是 11+ 且无 ActionBar 的可用基线 -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@color/backdrop</item>
+    </style>
+
+    <style name="AppTheme.Home" parent="AppTheme" />
+
+</resources>

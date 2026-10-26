@@ -25,7 +25,8 @@
 
 - 构建命令只用来产出 APK：`cd lite && ./gradlew :app:assembleDebug`。构建成功不是验证结论。
 - 验证结论必须来自设备行为：`adb install` 后按 Home、`dumpsys window | grep mCurrentFocus`、冷启动耗时、滚动与内存。
-- 本机没有 API 19 模拟器镜像，本地运行验证只能用 `android-21;android-tv;x86`；真机 4.4 结论必须单独标注来源，没跑过就写"未验证"。
+- 本机无 API 19/21 镜像；可用的是 `system-images;android-33;android-tv;arm64-v8a`（AVD `aerial_tv_api33`，1080p TV）。它只是行为代理：4.4 结论必须单独标注来源，没跑过就写"未验证"。
+- 工具链：JDK 17 在 `/opt/homebrew/opt/openjdk`（需手动 `export JAVA_HOME`），SDK 在 `~/Library/Android/sdk`；`tools/bin/sdkmanager` 在 JDK 17 上不可用，用 `cmdline-tools/latest/bin/sdkmanager`。
 - 静态检查：`./gradlew :app:lintDebug`，`NewApi` 必须 0 error。
 
 ## Trellis

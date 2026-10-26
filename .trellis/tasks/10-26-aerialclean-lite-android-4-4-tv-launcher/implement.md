@@ -6,10 +6,13 @@
 
 ## M0 环境（阻塞项）
 
-1. 安装 JDK 17（Temurin 或 Microsoft OpenJDK），设 `JAVA_HOME`。
-2. 设置 `ANDROID_HOME=C:\Users\fenglei\AppData\Local\Android\Sdk`，把 `platform-tools`、`build-tools\34.0.0` 加入 PATH。
-3. 生成 wrapper：`gradle wrapper --gradle-version 8.9`（若无全局 gradle，用 IDEA 自带 Gradle 或手工放 wrapper 文件）。
-4. 写 `lite/local.properties`：`sdk.dir=C:/Users/fenglei/AppData/Local/Android/Sdk`（已 gitignore）。
+> 平台是 macOS（arm64）。以下为实测可用的取值。
+
+1. JDK 17 已在 `/opt/homebrew/opt/openjdk`（不在 PATH）：命令前 `export JAVA_HOME=/opt/homebrew/opt/openjdk`。
+2. `ANDROID_HOME=/Users/fenglei/Library/Android/sdk`；`cmdline-tools/latest` 用 JDK 17 可运行（旧 `tools/bin/sdkmanager` 在 17 上因缺 JAXB 起不来）。
+3. 已装：`platforms;android-34`、`build-tools;34.0.0`、`system-images;android-33;android-tv;arm64-v8a`（Apple Silicon 只能用 arm64 镜像；4.4 的 x86 镜像在本机跑不了）。
+4. wrapper 已生成（Gradle 8.9），`lite/local.properties` 写 `sdk.dir=/Users/fenglei/Library/Android/sdk`（已 gitignore）。
+5. 模拟器：`emulator -avd aerial_tv_api33`（1080p TV，Android 13），`adb` 在 `$ANDROID_HOME/platform-tools`。
 
 验证：
 ```bash

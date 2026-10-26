@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶栏：M5 放 ClockView；右侧设置入口保证纯遥控器可达 -->
+        <FrameLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_bar_height">
+
+            <TextView
+                android:id="@+id/btn_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="@dimen/dock_margin_h"
+                android:background="@drawable/tile_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:nextFocusDown="@id/grid"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="10dp"
+                android:text="@string/settings_title"
+                android:textColor="@color/text_primary"
+                android:textSize="18sp" />
+        </FrameLayout>
+
+        <io.github.flyfly6.aerialclean.ui.GridView
+            android:id="@+id/grid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:nextFocusDown="@id/dock"
+            android:nextFocusUp="@id/btn_settings"
+            android:paddingLeft="@dimen/grid_padding_h"
+            android:paddingTop="@dimen/grid_padding_top"
+            android:paddingRight="@dimen/grid_padding_h"
+            android:paddingBottom="@dimen/grid_padding_bottom" />
+
+        <FrameLayout
+            android:id="@+id/dock_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dock_container_height"
+            android:layout_marginLeft="@dimen/dock_margin_h"
+            android:layout_marginRight="@dimen/dock_margin_h"
+            android:layout_marginBottom="@dimen/dock_margin_bottom"
+            android:background="@drawable/dock_bg">
+
+            <io.github.flyfly6.aerialclean.ui.DockView
+                android:id="@+id/dock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:nextFocusUp="@id/grid"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp" />
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>
