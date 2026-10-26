@@ -6,4 +6,5 @@
     <color name="tile_focus">#2EFFFFFF</color>
     <color name="tile_focus_stroke">#80FFFFFF</color>
     <color name="tile_icon_box">#1AFFFFFF</color>
+    <color name="saver_backdrop">#FF05070A</color>
 </resources>

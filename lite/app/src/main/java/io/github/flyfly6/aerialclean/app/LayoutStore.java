@@ -65,7 +65,8 @@ public final class LayoutStore {
     }
 
     public long saverIdleMs() {
-        long value = prefs.getLong(KEY_SAVER_IDLE_MS, DEFAULT_SAVER_IDLE_MS);
+        // design.md 里这个键是 int；用 getLong 读到 int 会抛 ClassCastException。
+        long value = prefs.getInt(KEY_SAVER_IDLE_MS, (int) DEFAULT_SAVER_IDLE_MS);
         return value > 0 ? value : DEFAULT_SAVER_IDLE_MS;
     }
 

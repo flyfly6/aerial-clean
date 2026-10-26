@@ -28,6 +28,7 @@ import io.github.flyfly6.aerialclean.app.PackageAppSource;
 import io.github.flyfly6.aerialclean.sys.DeviceInfo;
 import io.github.flyfly6.aerialclean.sys.Launcher;
 import io.github.flyfly6.aerialclean.ui.ActionSheet;
+import io.github.flyfly6.aerialclean.ui.ClockSaver;
 import io.github.flyfly6.aerialclean.ui.ClockView;
 import io.github.flyfly6.aerialclean.ui.DockView;
 import io.github.flyfly6.aerialclean.ui.GridView;
@@ -44,6 +45,7 @@ public class HomeActivity extends Activity
         implements TileAdapter.Listener, ActionSheet.Listener, SettingsPanel.Listener {
 
     private static final String TAG = "AerialClean";
+    private static final long IDLE_CHECK_MS = 5_000L;
 
     private final Handler main = new Handler(Looper.getMainLooper());
     private final ExecutorService worker = Executors.newSingleThreadExecutor();
@@ -55,6 +57,21 @@ public class HomeActivity extends Activity
     private DockView dock;
     private ClockView clock;
     private TextView netStatus;
+    private ClockSaver saver;
+
+    private long lastInteraction = SystemClock.uptimeMillis();
+    private long saverIdleMs = LayoutStore.DEFAULT_SAVER_IDLE_MS;
+    private boolean saverShown;
+
+    private final Runnable idleCheck = new Runnable() {
+        @Override
+        public void run() {
+            if (!saverShown && SystemClock.uptimeMillis() - lastInteraction >= saverIdleMs) {
+                showSaver();
+            }
+            main.postDelayed(this, IDLE_CHECK_MS);
+        }
+    };
 
     private List<AppEntry> allApps = Collections.emptyList();
     private Set<String> hidden = new LinkedHashSet<>();
@@ -76,6 +93,7 @@ public class HomeActivity extends Activity
         grid.setIconLoader(iconLoader);
         grid.setListener(this);
 
+        saver = (ClockSaver) findViewById(R.id.saver);
         clock = (ClockView) findViewById(R.id.clock);
         netStatus = (TextView) findViewById(R.id.net_status);
 
@@ -115,6 +133,7 @@ public class HomeActivity extends Activity
                 final int columnsFinal = layout.columns();
                 final int dockCountFinal = layout.dockCount();
                 final boolean clockFinal = layout.showClock();
+                final long saverIdleFinal = layout.saverIdleMs();
                 main.post(new Runnable() {
                     @Override
                     public void run() {
@@ -127,6 +146,7 @@ public class HomeActivity extends Activity
                         columns = columnsFinal;
                         dockCount = dockCountFinal;
                         showClock = clockFinal;
+                        saverIdleMs = saverIdleFinal;
                         applyLayout(gridded, docked, columnsFinal);
                         Log.i(TAG, "grid=" + gridded.size() + " dock=" + docked.size()
                                 + " in " + (SystemClock.uptimeMillis() - started) + "ms");
@@ -241,6 +261,37 @@ public class HomeActivity extends Activity
         layout.set(columns, dockCount, showClock);
     }
 
+    private void showSaver() {
+        saverShown = true;
+        saver.setVisibility(View.VISIBLE);
+        saver.bringToFront();
+    }
+
+    private void exitSaver() {
+        saverShown = false;
+        saver.setVisibility(View.GONE);
+        lastInteraction = SystemClock.uptimeMillis();
+    }
+
+    /** 按键、触摸都会走到这里；屏保期间任意键只负责唤醒。 */
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        lastInteraction = SystemClock.uptimeMillis();
+        if (saverShown) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                exitSaver();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+        lastInteraction = SystemClock.uptimeMillis();
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -266,6 +317,9 @@ public class HomeActivity extends Activity
     @Override
     protected void onResume() {
         super.onResume();
+        lastInteraction = SystemClock.uptimeMillis();
+        main.removeCallbacks(idleCheck);
+        main.postDelayed(idleCheck, IDLE_CHECK_MS);
         // 从别的应用回来时网络可能已经变了。
         netStatus.setText(DeviceInfo.networkLabel(this));
     }
@@ -276,6 +330,12 @@ public class HomeActivity extends Activity
         if (level >= TRIM_MEMORY_RUNNING_LOW) {
             iconLoader.clear();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        main.removeCallbacks(idleCheck);
+        super.onPause();
     }
 
     @Override

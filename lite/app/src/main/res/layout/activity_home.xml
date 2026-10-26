@@ -113,4 +113,10 @@
         </FrameLayout>
     </LinearLayout>
 
+    <io.github.flyfly6.aerialclean.ui.ClockSaver
+        android:id="@+id/saver"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
 </FrameLayout>

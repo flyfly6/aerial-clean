@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ClockSaver 自己 inflate，根标签是 merge：外层容器与可见性由 activity_home.xml 决定 -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/saver_clock_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextClock
+            android:id="@+id/saver_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:format12Hour="h:mm"
+            android:format24Hour="HH:mm"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/saver_time" />
+
+        <TextView
+            android:id="@+id/saver_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/saver_date" />
+    </LinearLayout>
+
+</merge>
