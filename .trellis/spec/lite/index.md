@@ -15,6 +15,9 @@
 - 读 [API 19 兼容](api19-compatibility.md)，确认要用的每个 API 在 19 上存在。
 - 新增依赖先看它的 `minSdk`；任何 21+ 的依赖都等于砍掉项目目标。
 - 改动涉及 Home / 应用枚举时，确认改动后仍能在没有 LEANBACK 声明的机型上列出 App。
+- **`AndroidManifest.xml` 的 HOME intent-filter 必须保留 `android:priority="1000"`**：装上去要能
+  抢过预装桌面（Google TV 的 tvlauncher 是 2）。有些固件（实测 Android 13 TV 镜像）无视这个
+  priority，那时只能由 `install.sh` 停用原桌面来接管；缺了它，所有固件都得靠停用。
 - 涉及焦点或按键时，用遥控器路径（DPAD + OK + BACK + MENU）走一遍，不只看触屏。
 
 ## 质量检查

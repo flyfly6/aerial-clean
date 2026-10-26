@@ -12,10 +12,10 @@
 
 - 改动脚本前先读 [停用安全](debloat-safety.md)。
 - 任何新增的 `pm` / `settings` / `cmd` 命令，都要在 4.4 上确认存在，或写回退。
-- 不把上游脚本改成"能跑但语义变了"：优先在项目自己的 `install.sh` / `restore.sh` 里编排，`tools/` 保持与上游同构，方便跟更新。
+- 不把上游脚本改成"能跑但语义变了"：优先在 `lib/installer.py` 里编排，`tools/` 保持与上游同构（见 `tools/UPSTREAM.md`），方便跟更新。`install.sh` / `install.ps1` 只是同一入口的启动器。
 
 ## 质量检查
 
-- `bash -n` 语法检查；Python 侧 `python -m py_compile`。
-- 无设备时：用假 tv 命令（`TV_HOST` 指向本地脚本）验证生成的命令批次与顺序。
-- 有设备时：先 `--dry-run` 看计划，再执行；执行后 `dumpsys window | grep mCurrentFocus` 与重启一次。
+- `bash -n` 语法检查；Python 侧 `python3 -m py_compile`；`pwsh` 解析 `*.ps1`。
+- 无设备时：`ADB=/usr/bin/true`（无设备）、`ADB=/nonexistent`（缺依赖）逐个确认退出码；`--dry-run` 的批次要能逐条核对。
+- 有设备时：先 `--dry-run` 看计划，再执行；执行后 `dumpsys window | grep mCurrentFocus`，并记进 `docs/devices/<机型>.md`。
