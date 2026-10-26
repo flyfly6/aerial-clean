@@ -14,6 +14,18 @@ android {
         versionName = "1.0"
     }
 
+    buildTypes {
+        release {
+            // C5：APK < 1.5MB。体积几乎全是 androidx.core 传递来的 kotlin-stdlib，
+            // 而我们只用到 RecyclerView，R8 能把没引用的全部剪掉。
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            // 本机验收用 debug 签名，省掉生成正式密钥的步骤。
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
