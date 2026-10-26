@@ -1,0 +1,24 @@
+# 构建产物
+lite/build/
+lite/app/build/
+lite/.gradle/
+lite/local.properties
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# 工具
+tools/venv/
+__pycache__/
+*.pyc
+
+# 编辑器
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 本地记录
+*.local

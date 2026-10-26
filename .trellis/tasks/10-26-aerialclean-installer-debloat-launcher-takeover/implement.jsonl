@@ -1,0 +1,4 @@
+{"file": ".trellis/spec/tools/debloat-safety.md", "reason": "禁用顺序、白名单、还原记录与 4.4 命令差异"}
+{"file": ".trellis/tasks/10-26-aerialclean-installer-debloat-launcher-takeover/design.md", "reason": "脚本组成、流程图、退出码与安全闸门"}
+{"file": ".trellis/tasks/10-26-aerialclean-installer-debloat-launcher-takeover/research/upstream-scripts.md", "reason": "上游 disable/restore/install 脚本的实际行为"}
+{"file": ".trellis/spec/guides/index.md", "reason": "两包之间的包名/路径契约"}

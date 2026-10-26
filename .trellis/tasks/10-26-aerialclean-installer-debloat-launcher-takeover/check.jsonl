@@ -1,0 +1,2 @@
+{"file": ".trellis/tasks/10-26-aerialclean-installer-debloat-launcher-takeover/prd.md", "reason": "A1-A7 验收标准与顺序证明"}
+{"file": ".trellis/spec/tools/debloat-safety.md", "reason": "检查是否绕过白名单或先禁后验"}
