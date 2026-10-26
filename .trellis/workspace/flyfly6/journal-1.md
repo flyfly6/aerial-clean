@@ -43,3 +43,28 @@
 ### Next Steps
 
 - P1（10-26-aerialclean-installer-debloat-launcher-takeover）仍是 planning，需用户确认后 task.py start；4.4 真机到手后重跑 A2–A5
+
+
+## Session 2: 安装器落地：debloat + 桌面接管（含 Home 接管机制实测）
+<!-- trellis-session: v=2 fp=c8f23d15e96ae721 -->
+
+**Date**: 2026-10-26
+**Task**: 安装器落地：debloat + 桌面接管（含 Home 接管机制实测）
+**Branch**: `main`
+
+### Summary
+
+引入 cleanyourtv tools（固定 commit）并实现 lib/installer.py 单实现 + bash/PowerShell 启动器。实测发现 Android 13 TV 上 set-home-activity、HOME role、清单 priority 全部无效，接管 Home 改为『停用原桌面 → 立即复验 → 失败回滚』，规范/PRD C3 同步重写。AVD 上验证 A1/A2/A4/A5/A7 与 C5；未验证：4.4 全路径、重启持久性（模拟器重启会恢复 disable-user）、PowerShell 5.1、厂商 priority 差异。lib/installer.py、install.*、restore.*、tools/、examples/、docs/devices/、README。
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `fa6325b` | feat(installer): 安装与还原编排（debloat + 桌面接管） |
+| `9385b05` | feat(lite): HOME intent-filter 提高 priority |
+| `9f78f2c` | docs(spec): 记录桌面接管的实测结论 |
+| `31c6065` | chore(task): 更新 10-26 安装器任务规划件 |
+
+### Status
+
+[OK] **Completed**
