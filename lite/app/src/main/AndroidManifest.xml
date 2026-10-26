@@ -23,7 +23,9 @@
             android:launchMode="singleTask"
             android:screenOrientation="landscape"
             android:theme="@style/AppTheme.Home">
-            <intent-filter>
+            <!-- priority 高于预装桌面（Google TV 的 tvlauncher 是 2）：没有它，选择 Home 的解析按
+                 priority 排序，装上去也抢不过原桌面；装上即接管、卸载即归还，不需要 root。 -->
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
