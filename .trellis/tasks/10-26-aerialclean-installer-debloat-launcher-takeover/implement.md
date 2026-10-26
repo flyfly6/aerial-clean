@@ -1,94 +1,103 @@
 # 实施计划：安装器
 
 前置约定：
-- 每个里程碑结束都要能跑 `bash -n` / `py_compile`；涉及设备的验收必须贴原始 `adb` 输出。
+- 每个里程碑结束都要能跑 `bash -n` / `py_compile` / `pwsh` 解析；涉及设备的验收必须贴原始输出。
 - 真机验证前先确认电视的 ADB 已开、电脑与电视同网段。
-- 顺序是产品需求，不是实现细节：任何"先禁用后验证"的写法都视为缺陷。
+- 顺序是产品需求（`.trellis/spec/tools/debloat-safety.md`）：任何"先停用后证明"的写法都算缺陷，
+  唯一允许的形态见该规范第 1 条。
 
 ## I0 引入上游工具（固定版本）
 
-1. 从 cleanyourtv 取 `tools/{disable.sh,restore.sh,tv.py,recovery.py,check.py}` 与 `tools/requirements.txt`，记录上游 commit 到 `tools/UPSTREAM.md`。
-2. `tools/venv` 安装依赖（`tv.py` 需要 `adb-shell` 之类的依赖，按上游 requirements 为准）。
-3. 不修改 `tools/` 内的逻辑；确需改动时写进 `tools/PATCHES.md` 并说明原因。
+1. 从 cleanyourtv 取 `tools/{disable.sh,disable.ps1,restore.sh,restore.ps1,tv.py,recovery.py,check.py}`
+   与 `tools/requirements.txt`，上游 commit 记进 `tools/UPSTREAM.md`。
+2. `python3 -m venv tools/venv && tools/venv/bin/pip install -r tools/requirements.txt`。
+3. 不修改 `tools/` 内的逻辑（`git diff tools/` 只应看到上游自己的改动）。
 
 验证：
 ```bash
 bash -n tools/disable.sh tools/restore.sh
-python -m py_compile tools/tv.py tools/recovery.py tools/check.py
-python -c "import sys; print(sys.version)"
+python3 -m py_compile tools/tv.py tools/recovery.py tools/check.py
+TV_HOST=127.0.0.1:5555 tools/venv/bin/python -I tools/tv.py --probe
 ```
 
-## I1 `install.sh` 骨架：参数、预检、dry-run
+## I1 入口与预检
 
-1. 参数解析：`TV_HOST`（或用 `--host`）、`--apk`、`--list`、`--no-debloat`、`--keep-stock-home`、`--stock-home <pkg>`、`--dry-run`、`--help`。
-2. 预检：`adb`、`python`、APK 文件是否存在；`adb connect`；`getprop ro.build.version.sdk`；APK 的 `minSdk`（`aapt2 dump badging` 或 `apkanalyzer`，都没有时从 `lite/app/build.gradle.kts` 读）。
-3. `--dry-run`：只打印将要执行的命令，一行一条，不改变设备状态。
+1. `lib/installer.py`：参数解析、`--help`、退出码、`adb` 定位（`ADB` 环境变量 / PATH）、
+   设备选择（`--host` / `TV_HOST` / 单台已连设备，多台要求显式指定）。
+2. 预检：APK 存在、minSdk ≤ 设备 SDK、读包名与启动 Activity（aapt2，缺失时读 `lite/app/build.gradle.kts`）、
+   设备是不是电视（不满足只警告）、`--list` 存在且每行是包名。
+3. `--dry-run` 只打印批次，不改设备。
 
 验证：
 ```bash
-./install.sh --help
-./install.sh --dry-run --apk /nonexistent.apk    # 退出码 3，明确指出缺什么
-./install.sh --dry-run --apk <真apk> --stock-home com.example/.Home
+./install.sh --help; echo $?                       # 0
+./install.sh --nope; echo $?                       # 2
+./install.sh --dry-run --apk /nonexistent.apk; echo $?   # 3
+ADB=/nonexistent/adb ./install.sh --dry-run; echo $?     # 3
+ADB=/usr/bin/true ./install.sh --dry-run; echo $?        # 4
 ```
 
-## I2 安装 + Home 验证 + 回滚
+## I2 安装 + 三道 Home 闸门 + 回滚
 
-1. `adb install -r <apk>`；失败时打印原始输出并以 5/6 退出。
-2. `am start -W -a android.intent.action.MAIN -c android.intent.category.HOME`。
-3. `dumpsys window | grep mCurrentFocus` 与目标包名比对；不匹配先尝试直接 `am start -n <pkg>/.HomeActivity` 再比一次。
-4. 仍不匹配：卸载本次安装的包，退出码 6，并提示"该机型可能硬编码 Home"。
+1. 已停用的 Lite 先 `pm enable`；`adb install -r`；失败按输出给 5。
+2. 闸门 1：`am start -n <组件>`，焦点必须是它（证明起得来）。
+3. 闸门 2：`cmd package query-activities -a MAIN -c HOME` 里必须有它（7.0 以下跳过并说明）。
+4. 闸门 3：`input keyevent KEYCODE_HOME` 后焦点是它（多读几次，窗口切换期间是 null）。
+5. 闸门 3 失败且原桌面已知 → `tools/disable.sh <只含原桌面的列表>` → 再验；仍失败 → `pm enable`
+   原桌面 + 回滚。
+6. 任何回滚都打印"已卸载本次安装的包 / 已重新启用原桌面"。
 
-验证（模拟器/真机）：
+验证（AVD）：
 ```bash
+./install.sh --host 127.0.0.1:5555 --list examples/google-atv-emulator/debloat.txt
+adb shell "pm list packages -d"
 adb shell "dumpsys window | grep mCurrentFocus"
-adb shell input keyevent KEYCODE_HOME
-adb shell "dumpsys window | grep mCurrentFocus"
 ```
 
-## I3 原桌面禁用 + 列表执行
+## I3 停用列表与二次验证
 
-1. `stock_home` 决策：`--keep-stock-home` > `--stock-home` > 记录文件里的旧值 > 尝试自动探测（SDK ≥ 24 用 `cmd package resolve-activity`）> 4.4 且无法探测时中止。
-2. 禁用原桌面前再查一次"是否还有别的 App 能应答 HOME"（`pm list packages` + `dumpsys`，SDK 允许时用 `cmd package query-activities`）。
-3. 调 `tools/disable.sh <list>`，保留它的白名单与 guard；结束后再验 Home。
-4. `--no-debloat` 时跳过整段。
+1. 调 `tools/disable.sh <list>`，保留它的白名单、Home guard 与记录。
+2. 只在**已经接管 Home** 时才做停用后的 Home 复验（`--keep-stock-home` 时 Home 本来在原桌面）。
+3. 重复运行沿用上游"第一份记录为准"，不产生第二份。
 
 验证：
 ```bash
-adb shell "pm list packages -d" | grep -c .        # 禁用前后计数变化
-adb shell input keyevent KEYCODE_HOME && adb shell "dumpsys window | grep mCurrentFocus"
+adb shell "pm list packages -d" | grep -c .        # 停用前后计数差 = 列表行数
+adb shell input keyevent KEYCODE_HOME; adb shell "dumpsys window | grep mCurrentFocus"
 ```
 
-## I4 `restore.sh`
+## I4 还原
 
-1. 读记录 → `tools/restore.sh <list> [stock_home]` 恢复禁用项。
-2. `pm enable <stock_home>`（如果当初禁用过），`am start -W -a MAIN -c HOME` 验证原桌面回来。
-3. `--uninstall` 时 `pm uninstall <pkg>`。
-4. 保留记录文件（不删），便于再次安装时复用 `stock_home`。
+1. 读 `~/.aerialclean/state/<序列号>.json`；没有记录就明确报错（3）。
+2. 每个列表跑 `tools/restore.sh <list> <stock_pkg>`；再 `pm enable <stock>`。
+3. 按 Home 验焦点：还在 Lite → `pm disable-user` 停用它（可逆，写进记录）再验。
+4. `--uninstall` 卸载 Lite 并再验一次原桌面。
 
 验证：
 ```bash
-./restore.sh --dry-run
-./restore.sh
-adb shell "dumpsys window | grep mCurrentFocus"    # 原桌面
+./restore.sh --host 127.0.0.1:5555 --dry-run
+./restore.sh --host 127.0.0.1:5555
+./restore.sh --host 127.0.0.1:5555 --uninstall
 ```
 
-## I5 PowerShell 对齐
+## I5 PowerShell 启动器
 
-1. `install.ps1` / `restore.ps1`：参数、顺序、退出码与 bash 版一致；共享逻辑调同一个 Python。
-2. 语法检查 + 用假 `adb.cmd`（PATH 前置）跑 `-DryRun`。
+1. `install.ps1` / `restore.ps1`：参数映射到同一份 `lib/installer.py`，找 `python3`/`python`/`py -3`。
+2. 语法检查 + `-Help` / `-DryRun` 实跑。
 
 验证：
-```powershell
+```bash
+pwsh -NoProfile -Command '& { [void][ScriptBlock]::Create((Get-Content -Raw install.ps1)); "ok" }'
 pwsh -NoProfile -File install.ps1 -Help
-pwsh -NoProfile -File install.ps1 -DryRun -Apk <apk>
+pwsh -NoProfile -File install.ps1 -TvHost 127.0.0.1:5555 -DryRun
 ```
 
-## I6 文档、样例与 4.4 验收
+## I6 文档、样例与验收
 
-1. `docs/devices/<model>.md` 模板：机型、SoC、Android 版本、RAM、ADB 入口、陷阱、实测输出。
+1. `docs/devices/<model>.md`：机型、Android 版本、RAM、实测输出、陷阱。
 2. `examples/<model>/debloat.txt` + `tv.json`；未实测的条目在文件头注明。
-3. README 补：安装、还原、4.4 的差异（`--stock-home` 必须显式给）。
-4. 走一遍 PRD 的 A1–A7。
+3. `README`：安装、还原、退出码、`--keep-stock-home` 的含义。
+4. 走一遍 PRD 的 A1–A7，结果写进 `docs/devices/google-atv-emulator.md`。
 
 ## 提交点
 

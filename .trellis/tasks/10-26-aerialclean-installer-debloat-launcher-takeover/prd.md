@@ -28,8 +28,8 @@
 |---|---|---|
 | FR-1 | `install.sh` / `install.ps1`：参数 `TV_HOST`、`--apk <path>`、`--list <file>`、`--no-debloat`、`--keep-stock-home`、`--dry-run` | 无参数时打印用法并以非 0 退出 |
 | FR-2 | 安装前预检：`adb connect` 可达、APK 的 minSdk ≤ 设备 SDK、设备是 TV（`ro.build.characteristics` 含 tv 或 `pm list features` 有 leanback，取其一即可，不满足只警告） | 设备是 4.4 时给出明确提示，不静默失败 |
-| FR-3 | 安装并验证 Home：`pm install -r` → `am start -W -a MAIN -c HOME` → 检查 `dumpsys window` 焦点为自己的 Activity | 未通过则中止，不执行任何禁用 |
-| FR-4 | 可选禁用原桌面：识别原桌面（`resolve-activity` 不可用时要求 `--stock-home <pkg>` 显式指定，或 `--keep-stock-home` 跳过） | 4.4 上不猜、不盲禁 |
+| FR-3 | 安装并接管 Home：`pm install -r` → `am start -n <新桌面组件>` 并确认焦点在它上面 → 确认它是系统列出的 HOME 候选（`cmd package query-activities`，7.0+）→ 按 Home 键看焦点 → 焦点不在新桌面时才停用原桌面，再验一次 | 新桌面起不来或不是 HOME 候选时中止，一个包都不停用；停用原桌面后仍失败则立刻 enable 回来并退出 6 |
+| FR-4 | 原桌面识别与处置：`--keep-stock-home` 跳过；`--stock-home <pkg>` 显式指定（必须已安装）；否则 SDK ≥ 24 用 `resolve-activity` 自动识别，7.0 以下只警告不猜 | 4.4 上不猜、不盲禁；`--stock-home` 指到不存在的包时设备零改动 |
 | FR-5 | 复用 `tools/disable.sh` 执行列表；记录与 Home guard 行为不变 | 禁用后再次确认 Home 仍是 Lite |
 | FR-6 | `restore.sh` / `restore.ps1`：`pm enable` 全部记录项 → 恢复原桌面 → `am start` 验证 → 可选 `--uninstall` 卸载 Lite | 恢复后 `mCurrentFocus` 是原桌面 |
 | FR-7 | `--dry-run` 输出完整命令批次，不执行 | 输出可逐条人工核对 |
@@ -50,7 +50,7 @@
 
 - C1 不改 `tools/` 中上游脚本的核心逻辑；新增能力放在 `install.sh` / `restore.sh` 里编排。
 - C2 只 `disable-user`，绝不 `uninstall`（除 `restore.sh --uninstall` 卸载本项目的 Lite）。
-- C3 顺序硬约束：**Home 验证通过之前，不执行任何 `pm disable-user`**。
+- C3 顺序硬约束：**只有在新桌面已安装、已拉起、且被系统列为 HOME 候选之后，才允许停用原桌面这一个包；停用后立刻验证 Home，失败当场 `pm enable` 回来**。除此之外不允许任何 `pm disable-user` 排在 Home 验证之前。（理由：Android 13 TV 镜像上 `set-home-activity`、HOME role、清单 priority 都不生效，见 `.trellis/spec/tools/debloat-safety.md`）
 - C4 支持 Windows（PowerShell 优先，Git Bash 可用）与 macOS/Linux。
 - C5 脚本必须可重复执行（幂等）：重复 `install.sh` 不产生重复禁用记录。
 - C6 所有对外命令都打印原始 `adb` 输出，不吞错误。
@@ -59,7 +59,7 @@
 
 - A1 `bash -n install.sh restore.sh`、`python -m py_compile tools/*.py` 通过；PowerShell 侧 `pwsh -NoProfile -Command "& { [void][ScriptBlock]::Create((Get-Content -Raw install.ps1)) }"` 无解析错误。
 - A2 `./install.sh --dry-run` 在无设备时给出依赖缺失的明确错误（非 0 退出），在有设备时输出完整批次且不改变设备状态。
-- A3 真机（任意受支持 Android 版本）：`install.sh` 后 `dumpsys window | grep mCurrentFocus` 含 `io.github.flyfly6.aerialclean`；重启一次后仍成立。
+- A3 `install.sh` 后 `dumpsys window | grep mCurrentFocus` 含 `io.github.flyfly6.aerialclean`；重启一次后仍成立。前半段已在 AVD 上验证；后半段在该模拟器上**无法验证**（镜像重启会恢复 `pm disable-user` 状态），真机待验。
 - A4 真机：带 `--list` 执行后，禁用项数 = 列表去重后的包数；再按一次 Home 仍回到 Lite。
 - A5 真机：`restore.sh` 后原桌面恢复、被禁包全部 enable；`restore.sh --uninstall` 后 Lite 被卸载。
 - A6 4.4 真机或模拟器：`install.sh` 在 `pm grant` / `cmd` 缺失时不报错、不静默跳过安全步骤，并在输出中说明跳过了什么。
@@ -72,7 +72,8 @@
 | 禁用依赖 ADB 入口的包（如创维 8R40 的 `com.tianci.de`） | 电视再也连不上，只能恢复出厂 | 首批列表逐批小步验证；文档记录该机型陷阱；`disable.sh` 的核心包白名单不放宽 |
 | 4.4 上无法自动识别原桌面 | 猜错 = 黑屏 | 强制显式 `--stock-home`，默认不动原桌面 |
 | 用户在同一台电视上重复运行 install | 重复记录、状态混乱 | 幂等设计 + 运行前读上一次记录并提示 |
-| Windows 与 bash 行为不一致 | 一半用户跑不通 | PowerShell 与 bash 双实现，命令集合逐条对齐；CI/本地对两者做语法检查 |
+| Windows 与 bash 行为不一致 | 一半用户跑不通 | 逻辑只有 `lib/installer.py` 一份，`*.sh` 与 `*.ps1` 是同一入口的启动器；本地对两者做语法检查 |
+| 官方换桌面手段在部分固件失效（`set-home-activity` / HOME role / 清单 priority） | 装上去抢不过原桌面，Home 不交出来 | 已实测并写进 `.trellis/spec/tools/debloat-safety.md`；唯一可靠路径是停用原桌面，配套三道闸门与失败回滚 |
 
 ## 依赖
 
