@@ -3,6 +3,7 @@ package io.github.flyfly6.aerialclean.ui;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,6 +20,9 @@ import io.github.flyfly6.aerialclean.app.IconLoader;
  * <p>磁贴会被 RecyclerView 复用，所以图标回调必须校验包名。
  */
 public class TileView extends LinearLayout {
+
+    private static final float FOCUS_SCALE = 1.08f;
+    private static final long FOCUS_ANIM_MS = 120L;
 
     private View iconBox;
     private ImageView iconView;
@@ -49,6 +53,11 @@ public class TileView extends LinearLayout {
 
     public void bind(AppEntry entry, IconLoader icons) {
         this.entry = entry;
+        if (!isFocused()) {
+            // 复用时可能继承上一个聚焦磁贴的放大状态。
+            setScaleX(1f);
+            setScaleY(1f);
+        }
         labelView.setText(entry.label);
         letterView.setText(firstLetter(entry.label));
         iconBox.setBackgroundColor(avatarColor(entry.pkg));
@@ -57,6 +66,17 @@ public class TileView extends LinearLayout {
         if (cached == null) {
             icons.load(entry.pkg, iconSizePx, this::onIconLoaded);
         }
+    }
+
+    @Override
+    protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+        animate().cancel();
+        animate()
+                .scaleX(gainFocus ? FOCUS_SCALE : 1f)
+                .scaleY(gainFocus ? FOCUS_SCALE : 1f)
+                .setDuration(FOCUS_ANIM_MS)
+                .start();
     }
 
     private void onIconLoaded(String pkg, Bitmap bitmap) {

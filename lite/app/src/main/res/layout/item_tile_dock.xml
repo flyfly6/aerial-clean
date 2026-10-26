@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.github.flyfly6.aerialclean.ui.TileView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dock_tile_width"
+    android:layout_height="@dimen/tile_height"
+    android:layout_margin="@dimen/tile_gap"
+    android:background="@drawable/tile_bg"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="8dp">
+
+    <FrameLayout
+        android:id="@+id/tile_icon_box"
+        android:layout_width="@dimen/tile_icon"
+        android:layout_height="@dimen/tile_icon"
+        android:background="@drawable/tile_icon_box">
+
+        <ImageView
+            android:id="@+id/tile_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:contentDescription="@null"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/tile_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/tile_letter" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tile_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/tile_label" />
+
+</io.github.flyfly6.aerialclean.ui.TileView>

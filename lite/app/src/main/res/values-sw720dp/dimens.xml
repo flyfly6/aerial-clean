@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  sw720dp 看的是最短边：1080p 电视是 1920x1080dp/px 换算后最短边 540dp，不命中本变体，
+  所以电视走 values/dimens.xml。这里只服务最短边 >= 720dp 的大屏（例如 4K@160dpi 的 2160dp 屏）。
+-->
+<resources>
+    <dimen name="tile_height">128dp</dimen>
+    <dimen name="tile_icon">52dp</dimen>
+    <dimen name="tile_letter">24sp</dimen>
+
+    <dimen name="dock_tile_width">120dp</dimen>
+
+    <dimen name="grid_padding_h">40dp</dimen>
+
+    <dimen name="top_bar_height">88dp</dimen>
+    <dimen name="clock_time">34sp</dimen>
+
+    <dimen name="dock_container_height">152dp</dimen>
+    <dimen name="dock_margin_h">40dp</dimen>
+    <dimen name="dock_margin_bottom">40dp</dimen>
+</resources>

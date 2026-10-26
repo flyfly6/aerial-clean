@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- 普通权限：无弹窗，只用来读网络类型；INTERNET 仍然不声明 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"

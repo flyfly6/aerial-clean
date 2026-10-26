@@ -24,9 +24,17 @@ public final class TileAdapter extends RecyclerView.Adapter<TileAdapter.Holder> 
         void onAppLongClick(AppEntry entry);
     }
 
+    private final int layoutRes;
     private List<AppEntry> items = Collections.emptyList();
     private IconLoader icons;
     private Listener listener;
+
+    /**
+     * @param layoutRes 磁贴布局：网格用自适应宽度，dock 用固定窄宽
+     */
+    public TileAdapter(int layoutRes) {
+        this.layoutRes = layoutRes;
+    }
 
     public void setItems(List<AppEntry> items) {
         this.items = items;
@@ -43,7 +51,7 @@ public final class TileAdapter extends RecyclerView.Adapter<TileAdapter.Holder> 
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tile, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(layoutRes, parent, false);
         final Holder holder = new Holder((TileView) view);
         view.setOnClickListener(new View.OnClickListener() {
             @Override

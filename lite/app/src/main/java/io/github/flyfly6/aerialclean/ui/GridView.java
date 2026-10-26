@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
+import io.github.flyfly6.aerialclean.R;
 import io.github.flyfly6.aerialclean.app.AppEntry;
 import io.github.flyfly6.aerialclean.app.IconLoader;
 
@@ -17,13 +18,15 @@ import io.github.flyfly6.aerialclean.app.IconLoader;
  */
 public class GridView extends RecyclerView {
 
-    private final TileAdapter adapter = new TileAdapter();
+    private final TileAdapter adapter = new TileAdapter(R.layout.item_tile);
 
     public GridView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setLayoutManager(new GridLayoutManager(context, 5));
         setHasFixedSize(true);
         setClipToPadding(false);
+        // 聚焦放大 1.08 会越出磁贴边界，不裁才不会切掉一圈。
+        setClipChildren(false);
         setAdapter(adapter);
         // 磁贴先取焦点；RV 本身只在没有子项时接收焦点。
         setDescendantFocusability(FOCUS_AFTER_DESCENDANTS);

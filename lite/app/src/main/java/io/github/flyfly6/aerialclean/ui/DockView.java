@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
+import io.github.flyfly6.aerialclean.R;
 import io.github.flyfly6.aerialclean.app.AppEntry;
 import io.github.flyfly6.aerialclean.app.IconLoader;
 
@@ -17,13 +18,15 @@ import io.github.flyfly6.aerialclean.app.IconLoader;
  */
 public class DockView extends RecyclerView {
 
-    private final TileAdapter adapter = new TileAdapter();
+    private final TileAdapter adapter = new TileAdapter(R.layout.item_tile_dock);
 
     public DockView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         setHasFixedSize(true);
         setClipToPadding(false);
+        // 聚焦放大 1.08 会越出磁贴边界，不裁才不会切掉一圈。
+        setClipChildren(false);
         setAdapter(adapter);
         setDescendantFocusability(FOCUS_AFTER_DESCENDANTS);
     }

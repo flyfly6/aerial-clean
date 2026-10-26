@@ -20,4 +20,7 @@
     <string name="settings_hidden">已隐藏应用：%1$d</string>
     <string name="settings_hidden_title">已隐藏应用</string>
     <string name="settings_hidden_empty">没有隐藏的应用</string>
+    <string name="net_disconnected">未连接</string>
+    <string name="net_wifi">Wi-Fi</string>
+    <string name="net_ethernet">有线</string>
 </resources>

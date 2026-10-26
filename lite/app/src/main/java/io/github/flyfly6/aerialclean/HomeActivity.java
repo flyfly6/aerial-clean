@@ -10,6 +10,7 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,8 +25,10 @@ import io.github.flyfly6.aerialclean.app.AppRepository;
 import io.github.flyfly6.aerialclean.app.IconLoader;
 import io.github.flyfly6.aerialclean.app.LayoutStore;
 import io.github.flyfly6.aerialclean.app.PackageAppSource;
+import io.github.flyfly6.aerialclean.sys.DeviceInfo;
 import io.github.flyfly6.aerialclean.sys.Launcher;
 import io.github.flyfly6.aerialclean.ui.ActionSheet;
+import io.github.flyfly6.aerialclean.ui.ClockView;
 import io.github.flyfly6.aerialclean.ui.DockView;
 import io.github.flyfly6.aerialclean.ui.GridView;
 import io.github.flyfly6.aerialclean.ui.SettingsPanel;
@@ -50,6 +53,8 @@ public class HomeActivity extends Activity
     private LayoutStore layout;
     private GridView grid;
     private DockView dock;
+    private ClockView clock;
+    private TextView netStatus;
 
     private List<AppEntry> allApps = Collections.emptyList();
     private Set<String> hidden = new LinkedHashSet<>();
@@ -70,6 +75,9 @@ public class HomeActivity extends Activity
         grid = (GridView) findViewById(R.id.grid);
         grid.setIconLoader(iconLoader);
         grid.setListener(this);
+
+        clock = (ClockView) findViewById(R.id.clock);
+        netStatus = (TextView) findViewById(R.id.net_status);
 
         dock = (DockView) findViewById(R.id.dock);
         dock.setIconLoader(iconLoader);
@@ -129,6 +137,8 @@ public class HomeActivity extends Activity
     }
 
     private void applyLayout(List<AppEntry> gridded, List<AppEntry> docked, int spanCount) {
+        clock.setVisibility(showClock ? View.VISIBLE : View.GONE);
+        netStatus.setText(DeviceInfo.networkLabel(this));
         grid.setColumns(spanCount);
         grid.submit(gridded);
         dock.submit(docked);
@@ -251,6 +261,13 @@ public class HomeActivity extends Activity
     private int getMemoryClass() {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         return manager.getMemoryClass();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // 从别的应用回来时网络可能已经变了。
+        netStatus.setText(DeviceInfo.networkLabel(this));
     }
 
     @Override

@@ -3,7 +3,7 @@
     <color name="backdrop">#FF101418</color>
     <color name="text_primary">#FFF2F4F7</color>
     <color name="text_secondary">#99FFFFFF</color>
-    <color name="tile_focus">#33FFFFFF</color>
+    <color name="tile_focus">#2EFFFFFF</color>
+    <color name="tile_focus_stroke">#80FFFFFF</color>
     <color name="tile_icon_box">#1AFFFFFF</color>
-    <color name="dock_surface">#14FFFFFF</color>
 </resources>

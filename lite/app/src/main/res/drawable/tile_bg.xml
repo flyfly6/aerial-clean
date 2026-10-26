@@ -4,6 +4,9 @@
         <shape android:shape="rectangle">
             <corners android:radius="16dp" />
             <solid android:color="@color/tile_focus" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/tile_focus_stroke" />
         </shape>
     </item>
     <item>
