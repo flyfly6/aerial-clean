@@ -1,0 +1,8 @@
+# AerialClean 停用列表格式
+#
+# 每行一个包名；# 之后是注释。空的或全注释的列表会让 tools/disable.sh 整单拒绝。
+# 不要写核心包（android / systemui / settings / packageinstaller / permissioncontroller /
+# ext.services / modulemetadata / overlay 等）：上游脚本会整单拒绝，且禁了这些电视可能开不了机。
+# 一次只加几个包，重启验证一遍再加下一批。
+#
+# 复制这个目录到 examples/<品牌>-<型号>/，并把 tv.json 填成实测的那台电视。

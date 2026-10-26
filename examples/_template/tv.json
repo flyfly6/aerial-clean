@@ -1,0 +1,10 @@
+{
+  "brand": "<品牌>",
+  "model": "<型号>",
+  "android": "<Android 版本，例如 11>",
+  "ram_mb": 0,
+  "adb_entry": "<怎么在电视上打开 ADB，例如 设置 > 关于 > 连按版本号 7 次>",
+  "verified": false,
+  "source": "<列表来自哪里：自己 pm list packages 导出的 / 社区列表 / 上游 examples 的哪个型号>",
+  "notes": "<实测到的陷阱，例如禁用某个包后 HDMI 输入黑屏>"
+}

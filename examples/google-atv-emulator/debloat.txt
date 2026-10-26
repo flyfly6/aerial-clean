@@ -1,0 +1,6 @@
+# Google ATV 模拟器（sdk_google_atv64_arm64 / Android 13）：只用来验证脚本行为，不是电视。
+# 实测：本目录的三个包在 AVD 上 disable → Home 仍回 AerialClean → restore 后全部恢复。
+# 真电视上禁用前请按 tv.json 的 notes 逐项确认自己是否在用这些功能。
+com.google.android.tv.bugreportsender
+com.google.android.tv.remote.service
+com.google.android.feedback

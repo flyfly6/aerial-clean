@@ -1,0 +1,10 @@
+{
+  "brand": "Google",
+  "model": "sdk_google_atv64_arm64 (Android TV AVD aerial_tv_api33)",
+  "android": "13",
+  "ram_mb": 1962,
+  "adb_entry": "模拟器无需打开：adb connect 127.0.0.1:5555",
+  "verified": true,
+  "source": "本仓 pm list packages 人工挑选：只取与被禁即不可用的功能无关的三项",
+  "notes": "tv.remote.service 是实体遥控器配对服务，模拟器上没有遥控器；bugreportsender 只影响 bugreport；feedback 是反馈收集。真电视上禁用 tv.remote.service 会让手机遥控 App 失联。"
+}
