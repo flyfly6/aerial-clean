@@ -38,11 +38,15 @@ Windows PowerShell 5.1 未验证。
 
 ## 陷阱
 
-- **`pm disable-user` 在这台镜像上不跨重启**：实测 `pm disable-user --user 0 com.google.android.feedback`
-  → `sync` → `adb reboot` 之后它又变成 enabled；`pm list packages -d` 里只剩镜像自带的
-  `com.android.vending`、`com.google.android.gms`。所以验收 A3 的"重启一次后仍成立"在模拟器上
-  **无法验证**，真机待验。脚本没有为此加任何补偿动作：真机上 `disable-user` 是标准持久行为。
-- 模拟器重启后 Home 会回到 tvlauncher（因为 tvlauncher 被重启重新启用），不是脚本的问题。
+- **持久性分两种重启**：`adb reboot`（guest 内热重启）会丢掉本次会话的 `pm disable-user` 状态——
+  实测 `pm disable-user --user 0 com.google.android.feedback` → `sync` → `adb reboot` 之后它又变成
+  enabled，`pm list packages -d` 里只剩镜像自带的 `com.android.vending`、`com.google.android.gms`。
+  但**冷启动不会**：`adb emu kill` 关掉模拟器再用同样的参数启动，`pm list packages -d` 仍是
+  `tvlauncher` + 列表里那 3 个包，`mCurrentFocus` 仍是 `io.github.flyfly6.aerialclean/.HomeActivity`。
+  所以验收 A3 的"重启一次后仍成立"按冷启动算**已通过**；`adb reboot` 那条路是这个镜像的怪癖，
+  脚本不为此加补偿动作。
+- 走 `adb reboot` 那条路时，重启后 Home 会回到 tvlauncher（tvlauncher 被重新启用），不是脚本的问题；
+  冷启动不会（见上一条）。
 - `adb devices` 里同时有 `emulator-5554` 与 `127.0.0.1:5555` 时，`install.sh` 会要求用
   `--host`/`TV_HOST` 指定一台——这是有意的，避免改错设备。
 - `cmd package resolve-activity` 在 Home 无默认时返回 `android/…ResolverActivity`；脚本把它当
