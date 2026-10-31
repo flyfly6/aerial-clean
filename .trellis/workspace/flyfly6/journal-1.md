@@ -68,3 +68,25 @@
 ### Status
 
 [OK] **Completed**
+
+
+## Session 3: 静态壁纸系统与 Dock 现代 TV 视觉重构
+<!-- trellis-session: v=2 fp=3675da7146e5c894 -->
+
+**Date**: 2026-10-31
+**Task**: 静态壁纸系统与 Dock 现代 TV 视觉重构
+**Branch**: `main`
+
+### Summary
+
+lite 桌面完成静态壁纸与顶栏/Dock 重构：新增 WallpaperManager/WallpaperConfig/BingWallpaperClient（必应每日 + 14 张内置 WebP、720p/1080p/4K 采样、离线缓存），BackdropView 全屏绘制壁纸；顶栏改为 Outfit 字体三行结构（公历+农历、大盘时钟、Open-Meteo 天气）+ 矢量 NetworkIconView 与设置齿轮；磁贴圆角/内边距与 5 槽位自适应调整；SettingsPanel 重写为卡片式暗黑弹窗（壁纸来源、采样、底板、列数、槽位、时钟开关）；ClockSaver 支持壁纸 Center-Crop + 75% 遮罩防烧屏 + 随机漂移。新增 weather/LunarCalendar、network 图标与 6 个单测文件（共 23 测试通过），NewApi 0 error。注意：本次在 AndroidManifest 中声明了 INTERNET 权限，与 AGENTS.md『权限：无 INTERNET』基线冲突，需确认是接受联网壁纸/天气还是回退为纯内置资源。
+
+### Git Commits
+
+| Hash | Message |
+|------|---------|
+| `6174481` | feat(lite): 实现静态壁纸系统与 Dock 现代 TV 视觉重构 |
+
+### Status
+
+[OK] **Completed**
