@@ -9,6 +9,23 @@ AerialClean 把两件事合到一个仓库：
 
 不插线、不 root、不卸载系统应用；每一步都能用一条命令还原。
 
+## 用编程助手操作（Claude Code / Codex / Gemini CLI）
+
+不想记参数就把整件事交给有 shell 权限的编程助手——它读仓库、跑 `install.sh`、按退出码判断成败。
+
+| 步骤 | 操作 |
+|---|---|
+| 1. 电视端 | 设置 → 设备偏好设置 → 关于 → 在「版本号」上连按 7 次 → 返回进开发者选项 → 打开 USB 调试（有「网络调试 / ADB 调试」也一并打开）。保持电视开机。菜单名因机型而异。 |
+| 2. 电脑端 | **先克隆再打开**：`git clone https://github.com/flyfly6/aerial-clean`，在助手里以该目录为工作区。 |
+| 3. 交提示词 | 把 [`PROMPT.md`](PROMPT.md) 整段贴给助手，把 `<机型>` 换成你的电视。电视弹出「允许 USB 调试」时点允许，再对助手说一声。 |
+| 4. 跟流程 | 助手先 `--dry-run` 给你看命令批次，确认后才真装；退出码非 0 就停下并把还原命令贴给你。 |
+
+先克隆的意义：助手直接复用 `install.sh` / `restore.sh` 的顺序、Home 回滚与退出码，不会另写一套
+命令；`PROMPT.md` 里写死了这条约束，也写死了「先干跑、非 0 退出就停、未实测的结论要标未验证」。
+
+助手还需要 JDK 17 与 Android SDK 34 才能构建 APK（见[开发环境](#开发环境)）；只跑停用列表不需要。
+Windows 上用 `install.ps1` / `restore.ps1`，参数与 bash 版一一对应。
+
 ## 安装
 
 需要：电脑上有 `adb` 与 Python 3.8+，电视打开 ADB 调试并与电脑同一网段。
@@ -66,6 +83,7 @@ aerial-clean/
 ├─ examples/        按机型整理的停用列表
 ├─ install.sh  install.ps1    安装并按顺序接管
 ├─ restore.sh  restore.ps1    还原
+├─ PROMPT.md        给编程助手粘贴的操作提示词
 ├─ docs/            机型笔记与兼容说明
 └─ .trellis/        计划、任务、规范
 ```
