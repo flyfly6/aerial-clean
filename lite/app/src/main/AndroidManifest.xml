@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- 普通权限：无弹窗，只用来读网络类型；INTERNET 仍然不声明 -->
+    <!-- 普通权限：读网络类型，以及必应每日壁纸获取 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- androidx.core 会合并进来通知权限；桌面不发通知，显式移除 -->
     <uses-permission

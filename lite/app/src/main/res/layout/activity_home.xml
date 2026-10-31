@@ -1,118 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 像素级还原 aerial-tv 视觉意图的 AerialClean TV 主界面 (1080p) -->
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backdrop">
 
+    <!-- 1. 背景层：静态壁纸居中裁剪 + 暗角 Scrim + 85% 网格遮罩平滑淡入 -->
     <io.github.flyfly6.aerialclean.ui.BackdropView
+        android:id="@+id/backdrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
+    <!-- 2. 首屏展示层：左上角三行状态 + 右上角图标胶囊 + 底部居中常用 Dock -->
+    <FrameLayout
+        android:id="@+id/layer_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <!-- 顶栏：左侧时钟，右侧网络状态 + 设置入口，保证纯遥控器可达 -->
+        <!-- 顶栏状态与时钟 (距顶 36dp, 两侧边距 56dp) -->
         <FrameLayout
             android:id="@+id/top_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/top_bar_height">
+            android:layout_height="wrap_content"
+            android:paddingLeft="56dp"
+            android:paddingTop="36dp"
+            android:paddingRight="56dp">
 
+            <!-- 左上角：第一行日期+星期+农历，第二行时间，第三行天气图标+温度+位置+天气+温度 -->
             <io.github.flyfly6.aerialclean.ui.ClockView
                 android:id="@+id/clock"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginLeft="@dimen/dock_margin_h">
+                android:layout_gravity="left|top">
 
+                <!-- 第一行：日期 + 星期几 + 农历 -->
+                <TextView
+                    android:id="@+id/clock_date_lunar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#80000000"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:shadowRadius="8"
+                    android:textColor="#CBD5E1"
+                    android:textSize="18sp" />
+
+                <!-- 第二行：大时钟 (84sp Outfit 现代无衬线字体) -->
                 <TextClock
                     android:id="@+id/clock_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
                     android:format12Hour="h:mm"
                     android:format24Hour="HH:mm"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/clock_time" />
+                    android:shadowColor="#80000000"
+                    android:shadowDx="0"
+                    android:shadowDy="6"
+                    android:shadowRadius="12"
+                    android:textColor="#FFFFFF"
+                    android:textSize="84sp"
+                    android:textStyle="bold" />
 
+                <!-- 第三行：天气图标 + 温度 + 位置 + 天气 + 温度 -->
                 <TextView
-                    android:id="@+id/clock_date"
+                    android:id="@+id/clock_weather"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/clock_date" />
+                    android:shadowColor="#80000000"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:shadowRadius="8"
+                    android:textColor="#94A3B8"
+                    android:textSize="16sp" />
             </io.github.flyfly6.aerialclean.ui.ClockView>
 
+            <!-- 右上角：壁纸胶囊徽章 + 网络状态图标 + 设置齿轮图标按钮 -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right|center_vertical"
-                android:layout_marginRight="@dimen/dock_margin_h"
+                android:layout_gravity="right|top"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
+                <!-- 壁纸来源与分辨率信息胶囊 -->
                 <TextView
-                    android:id="@+id/net_status"
+                    android:id="@+id/wallpaper_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="24dp"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/status_text" />
+                    android:layout_marginRight="16dp"
+                    android:background="@drawable/wallpaper_badge_bg"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="8dp"
+                    android:text="必应每日精选 · 1080p"
+                    android:textColor="#F1F5F9"
+                    android:textSize="15sp" />
 
+                <!-- 纯矢量网络状态图标 (WiFi / 以太网) -->
+                <io.github.flyfly6.aerialclean.ui.NetworkIconView
+                    android:id="@+id/net_icon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="16dp" />
+
+                <!-- 设置齿轮图标按钮 (支持遥控器获焦与点击) -->
                 <TextView
-                    android:id="@+id/btn_settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/tile_bg"
+                    android:id="@+id/btn_settings_icon"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/chip_bg"
                     android:clickable="true"
                     android:focusable="true"
-                    android:nextFocusDown="@id/grid"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="10dp"
-                    android:text="@string/settings_title"
-                    android:textColor="@color/text_primary"
-                    android:textSize="18sp" />
+                    android:gravity="center"
+                    android:text="⚙"
+                    android:textColor="#FFFFFF"
+                    android:textSize="22sp" />
             </LinearLayout>
         </FrameLayout>
 
+        <!-- 屏幕底部常用 Dock 底板 (带左右外边距 64dp, 严格水平居中) -->
+        <FrameLayout
+            android:id="@+id/dock_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="64dp"
+            android:layout_marginRight="64dp"
+            android:layout_marginBottom="44dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:background="@drawable/dock_bg_translucent">
+
+            <io.github.flyfly6.aerialclean.ui.DockView
+                android:id="@+id/dock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:paddingLeft="@dimen/dock_padding_h"
+                android:paddingTop="@dimen/dock_padding_v"
+                android:paddingRight="@dimen/dock_padding_h"
+                android:paddingBottom="@dimen/dock_padding_v" />
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- 3. 全部应用网格视图层 (按遥控器向下键平滑切入) -->
+    <LinearLayout
+        android:id="@+id/layer_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- 网格顶栏：只保留干净纯粹的标题，去掉右侧多余提示文案 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="56dp"
+            android:paddingTop="20dp"
+            android:paddingRight="56dp">
+
+            <TextView
+                android:id="@+id/grid_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全部应用"
+                android:textColor="#FFFFFF"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 全部应用网格列表 -->
         <io.github.flyfly6.aerialclean.ui.GridView
             android:id="@+id/grid"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
             android:clipToPadding="false"
-            android:nextFocusDown="@id/dock"
-            android:nextFocusUp="@id/btn_settings"
             android:paddingLeft="@dimen/grid_padding_h"
             android:paddingTop="@dimen/grid_padding_top"
             android:paddingRight="@dimen/grid_padding_h"
             android:paddingBottom="@dimen/grid_padding_bottom" />
-
-        <FrameLayout
-            android:id="@+id/dock_container"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dock_container_height"
-            android:layout_marginLeft="@dimen/dock_margin_h"
-            android:layout_marginRight="@dimen/dock_margin_h"
-            android:layout_marginBottom="@dimen/dock_margin_bottom"
-            android:background="@drawable/dock_bg">
-
-            <io.github.flyfly6.aerialclean.ui.DockView
-                android:id="@+id/dock"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:nextFocusUp="@id/grid"
-                android:paddingLeft="8dp"
-                android:paddingTop="8dp"
-                android:paddingRight="8dp"
-                android:paddingBottom="8dp" />
-        </FrameLayout>
     </LinearLayout>
 
+    <!-- 4. 壁纸图片背景时钟屏保 -->
     <io.github.flyfly6.aerialclean.ui.ClockSaver
         android:id="@+id/saver"
         android:layout_width="match_parent"

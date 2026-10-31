@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 现代化设置面板大卡片底板：深色半透磨砂 + 1.5dp 高光描边，圆角 24dp -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="24dp" />
+    <solid android:color="#EB0B0E14" />
+    <stroke
+        android:width="1.5dp"
+        android:color="#33FFFFFF" />
+</shape>

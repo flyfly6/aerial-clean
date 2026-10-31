@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 老设备优化推荐：85% 半透深色底板 + 1.5dp 高光描边，0 GPU 额外开销，稳定 60fps -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="32dp" />
+    <solid android:color="#D90B0E14" />
+    <stroke
+        android:width="1.5dp"
+        android:color="#4DFFFFFF" />
+</shape>

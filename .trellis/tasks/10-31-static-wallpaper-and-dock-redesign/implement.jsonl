@@ -1,0 +1,4 @@
+{"file": ".trellis/spec/lite/api19-compatibility.md", "reason": "4.4 上哪些 API 可用、哪些必须用替代写法"}
+{"file": ".trellis/spec/lite/quality-guidelines.md", "reason": "性能、内存、焦点与错误处理的下限"}
+{"file": ".trellis/tasks/10-31-static-wallpaper-and-dock-redesign/prd.md", "reason": "FR-1至FR-10需求与A1-A8验收标准"}
+{"file": ".trellis/tasks/10-31-static-wallpaper-and-dock-redesign/design.md", "reason": "静态壁纸引擎、采样率计算、双层焦点流转与4.4性能降级架构"}

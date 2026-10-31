@@ -1,12 +1,19 @@
 package io.github.flyfly6.aerialclean.ui;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 import java.text.DateFormat;
@@ -16,9 +23,9 @@ import java.util.Random;
 import io.github.flyfly6.aerialclean.R;
 
 /**
- * 屏保：全屏黑底 + 大时钟，每分钟把时钟块随机偏移 ±drift，避免烧屏。
+ * 屏保：壁纸图片背景 + 75% 沉浸深色遮罩 + 大时钟随机漂移防烧屏。
  *
- * <p>用应用内覆盖层而不是 DreamService：4.4 上部分厂商没有屏保入口。
+ * <p>兼容 Android 4.4，低内存消耗。
  */
 public class ClockSaver extends FrameLayout {
 
@@ -31,8 +38,14 @@ public class ClockSaver extends FrameLayout {
             android.text.format.DateFormat.getMediumDateFormat(getContext());
 
     private View clockBox;
+    private TextClock timeView;
     private TextView dateView;
     private int driftPx;
+
+    private Bitmap wallpaperBitmap;
+    private final Paint bitmapPaint = new Paint(Paint.FILTER_BITMAP_FLAG);
+    private final Rect srcRect = new Rect();
+    private final RectF dstRect = new RectF();
 
     private final Runnable driftTick = new Runnable() {
         @Override
@@ -52,63 +65,81 @@ public class ClockSaver extends FrameLayout {
 
     public ClockSaver(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setWillNotDraw(false);
         setBackgroundColor(context.getResources().getColor(R.color.saver_backdrop));
-        // 盖住桌面时把点击也吃掉，避免穿透到下面的磁贴。
         setClickable(true);
         LayoutInflater.from(context).inflate(R.layout.saver_clock, this, true);
         clockBox = findViewById(R.id.saver_clock_box);
+        timeView = (TextClock) findViewById(R.id.saver_time);
         dateView = (TextView) findViewById(R.id.saver_date);
-        driftPx = context.getResources().getDimensionPixelSize(R.dimen.saver_drift);
-    }
+        driftPx = getResources().getDimensionPixelSize(R.dimen.saver_drift);
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        updateDate();
-        handler.removeCallbacks(driftTick);
-        handler.removeCallbacks(dateTick);
-        handler.postDelayed(driftTick, DRIFT_MS);
-        handler.postDelayed(dateTick, DATE_MS);
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        handler.removeCallbacks(driftTick);
-        handler.removeCallbacks(dateTick);
-        super.onDetachedFromWindow();
-    }
-
-    @Override
-    public void setVisibility(int visibility) {
-        super.setVisibility(visibility);
-        if (clockBox == null) {
-            return;
+        try {
+            Typeface outfit = Typeface.createFromAsset(context.getAssets(), "fonts/outfit.ttf");
+            if (outfit != null && timeView != null) {
+                timeView.setTypeface(outfit);
+            }
+        } catch (Exception ignored) {
         }
-        if (visibility == VISIBLE) {
-            updateDate();
+    }
+
+    public void setWallpaperBitmap(Bitmap bitmap) {
+        this.wallpaperBitmap = bitmap;
+        invalidate();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if (wallpaperBitmap != null && !wallpaperBitmap.isRecycled()) {
+            int bw = wallpaperBitmap.getWidth();
+            int bh = wallpaperBitmap.getHeight();
+            int vw = getWidth();
+            int vh = getHeight();
+            if (vw > 0 && vh > 0) {
+                float scale = Math.max((float) vw / bw, (float) vh / bh);
+                int scaledW = (int) (bw * scale);
+                int scaledH = (int) (bh * scale);
+                int dx = (vw - scaledW) / 2;
+                int dy = (vh - scaledH) / 2;
+                dstRect.set(dx, dy, dx + scaledW, dy + scaledH);
+                srcRect.set(0, 0, bw, bh);
+                canvas.drawBitmap(wallpaperBitmap, srcRect, dstRect, bitmapPaint);
+                // 覆盖 75% 深色遮罩，防烧屏并凸显纯白漂移大时钟
+                canvas.drawColor(0xBF000000);
+            }
         } else {
-            // 退出屏保时回到中心，下次从正中开始漂移。
-            clockBox.setTranslationX(0f);
-            clockBox.setTranslationY(0f);
+            super.onDraw(canvas);
+        }
+    }
+
+    @Override
+    protected void onVisibilityChanged(View changedView, int visibility) {
+        super.onVisibilityChanged(changedView, visibility);
+        if (visibility == VISIBLE) {
+            updateDateIfShowing();
+            drift();
+            handler.removeCallbacks(driftTick);
+            handler.removeCallbacks(dateTick);
+            handler.postDelayed(driftTick, DRIFT_MS);
+            handler.postDelayed(dateTick, DATE_MS);
+        } else {
+            handler.removeCallbacks(driftTick);
+            handler.removeCallbacks(dateTick);
         }
     }
 
     private void drift() {
-        if (getVisibility() != VISIBLE) {
+        if (clockBox == null) {
             return;
         }
-        clockBox.setTranslationX((random.nextFloat() * 2f - 1f) * driftPx);
-        clockBox.setTranslationY((random.nextFloat() * 2f - 1f) * driftPx);
+        int dx = random.nextInt(driftPx * 2 + 1) - driftPx;
+        int dy = random.nextInt(driftPx * 2 + 1) - driftPx;
+        clockBox.setTranslationX(dx);
+        clockBox.setTranslationY(dy);
     }
 
     private void updateDateIfShowing() {
-        if (getVisibility() == VISIBLE) {
-            updateDate();
-        }
-    }
-
-    private void updateDate() {
-        if (dateView != null) {
+        if (dateView != null && isShown()) {
             dateView.setText(dateFormat.format(new Date()));
         }
     }

@@ -34,7 +34,7 @@ public class TileView extends LinearLayout {
     public TileView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setOrientation(VERTICAL);
-        setGravity(android.view.Gravity.CENTER_HORIZONTAL);
+        setGravity(android.view.Gravity.CENTER);
     }
 
     @Override
@@ -71,6 +71,11 @@ public class TileView extends LinearLayout {
     @Override
     protected void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+        if (labelView != null) {
+            labelView.setTextColor(gainFocus ? Color.WHITE : Color.parseColor("#CBD5E1"));
+            labelView.getPaint().setFakeBoldText(gainFocus);
+            labelView.invalidate();
+        }
         animate().cancel();
         animate()
                 .scaleX(gainFocus ? FOCUS_SCALE : 1f)

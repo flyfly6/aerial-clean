@@ -47,4 +47,24 @@ public final class DeviceInfo {
         String name = info.getTypeName();
         return name == null ? context.getString(R.string.net_disconnected) : name;
     }
+
+    /**
+     * @return ConnectivityManager.TYPE_WIFI, TYPE_ETHERNET, 或 -1 (未连接)
+     */
+    public static int networkType(Context context) {
+        ConnectivityManager manager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (manager == null) {
+            return -1;
+        }
+        try {
+            NetworkInfo info = manager.getActiveNetworkInfo();
+            if (info == null || !info.isConnected()) {
+                return -1;
+            }
+            return info.getType();
+        } catch (SecurityException denied) {
+            return -1;
+        }
+    }
 }

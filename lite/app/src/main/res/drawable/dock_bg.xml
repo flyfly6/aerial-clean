@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 玻璃底板：上亮下暗的纵向渐变，只用单层圆角矩形，避免 item 级 height 之类的 API 23 属性 -->
+<!-- 玻璃底板：半透明磨砂质感 + 1.5dp 高光描边，圆角 32dp -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <corners android:radius="24dp" />
-    <gradient
-        android:angle="270"
-        android:endColor="#0FFFFFFF"
-        android:startColor="#26FFFFFF" />
+    <corners android:radius="32dp" />
+    <solid android:color="#24000000" />
+    <stroke
+        android:width="1.5dp"
+        android:color="#40FFFFFF" />
 </shape>

@@ -1,0 +1,3746 @@
+{
+  "version": "2.21",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Ao2J4",
+      "x": 0,
+      "y": 0,
+      "name": "TV Home - Default View (1080p)",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "#0B0E14",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "f1A0pm",
+          "x": 0,
+          "y": 0,
+          "name": "Wallpaper Background",
+          "metadata": {
+            "type": "unsplash",
+            "username": "valentinbalan",
+            "link": "https://unsplash.com/@valentinbalan",
+            "author": "Valentin Balan"
+          },
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1778343284768-b5ca177511a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzYzNTB8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "cover"
+          },
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "rectangle",
+          "id": "tziIh",
+          "x": 0,
+          "y": 0,
+          "name": "Vignette & Gradient Scrim",
+          "fill": {
+            "type": "gradient",
+            "gradientType": "linear",
+            "enabled": true,
+            "rotation": 180,
+            "size": {
+              "height": 1
+            },
+            "colors": [
+              {
+                "color": "#00000099",
+                "position": 0
+              },
+              {
+                "color": "#00000020",
+                "position": 0.4
+              },
+              {
+                "color": "#000000B3",
+                "position": 1
+              }
+            ]
+          },
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "frame",
+          "id": "WiRNI",
+          "x": 96,
+          "y": 72,
+          "name": "Top Bar",
+          "width": 1728,
+          "height": 140,
+          "justifyContent": "space_between",
+          "children": [
+            {
+              "type": "frame",
+              "id": "jVjkZ",
+              "name": "Clock & Date Box",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UESbD",
+                  "name": "Date & Lunar Text",
+                  "content": "10月31日 周六 九月廿二",
+                  "fontFamily": "Outfit",
+                  "fontSize": 18,
+                  "fontWeight": "500",
+                  "fill": "#CBD5E1"
+                },
+                {
+                  "type": "text",
+                  "id": "QLw1E",
+                  "name": "Clock Text",
+                  "content": "10:24",
+                  "fontFamily": "Outfit",
+                  "fontSize": 84,
+                  "fontWeight": "700",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "wTh01",
+                  "name": "Weather Text",
+                  "content": "⛅ 6°C 北京 晴间多云 6°C",
+                  "fontFamily": "Outfit",
+                  "fontSize": 15,
+                  "fontWeight": "500",
+                  "fill": "#94A3B8"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CNH1n",
+              "name": "Status & Info Box",
+              "layout": "vertical",
+              "gap": 14,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "t3PLCQ",
+                  "name": "Wallpaper Info Badge",
+                  "fill": "#0000004D",
+                  "cornerRadius": 20,
+                  "stroke": "#FFFFFF33",
+                  "strokeWidth": 1,
+                  "gap": 10,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "NQPBt",
+                      "name": "Camera Icon",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "image",
+                      "library": "lucide",
+                      "fill": "#38BDF8"
+                    },
+                    {
+                      "type": "text",
+                      "id": "t3JdA",
+                      "name": "Wallpaper Info Text",
+                      "fill": "#F1F5F9",
+                      "content": "必应每日精选 · 1080p",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gJbWw",
+                  "name": "System Status Row",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "v5vEH",
+                      "name": "Wifi Icon",
+                      "icon": "wifi",
+                      "library": "lucide",
+                      "width": 20,
+                      "height": 20,
+                      "fill": "#38BDF8"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "btnSettings",
+                      "name": "Settings Icon Button",
+                      "width": 38,
+                      "height": 38,
+                      "cornerRadius": 10,
+                      "fill": "#FFFFFF1A",
+                      "stroke": "#FFFFFF33",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "alignItems": "center",
+                      "justifyContent": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "gearIcon",
+                          "name": "Gear Icon",
+                          "icon": "settings",
+                          "library": "lucide",
+                          "width": 20,
+                          "height": 20,
+                          "fill": "#F1F5F9"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k96WG",
+          "x": 210,
+          "y": 690,
+          "name": "Favorites Glass Dock",
+          "width": 1500,
+          "height": 210,
+          "fill": "#FFFFFF17",
+          "cornerRadius": 32,
+          "stroke": "#FFFFFF33",
+          "strokeWidth": 1.5,
+          "effect": [
+            {
+              "type": "background_blur",
+              "radius": 32
+            },
+            {
+              "type": "shadow",
+              "shadowType": "outer",
+              "color": "#00000080",
+              "offset": {
+                "x": 0,
+                "y": 16
+              },
+              "blur": 40
+            }
+          ],
+          "gap": 24,
+          "padding": [
+            20,
+            32
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "iBLRO",
+              "name": "Dock Tile - 爱奇艺 TV",
+              "width": 180,
+              "height": 160,
+              "fill": "#FFFFFF0A",
+              "cornerRadius": 12,
+              "stroke": "#FFFFFF1A",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Tzu2U",
+                  "name": "Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#10B981",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "t7prxN",
+                      "name": "App Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "play",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "DVBGc",
+                  "name": "App Name",
+                  "fill": "#E2E8F0",
+                  "content": "爱奇艺 TV",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ZnraQ",
+              "name": "Dock Tile - 云视听极光",
+              "width": 180,
+              "height": 160,
+              "fill": "#FFFFFF0A",
+              "cornerRadius": 12,
+              "stroke": "#FFFFFF1A",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Ab59W",
+                  "name": "Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#F59E0B",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "nwDuM",
+                      "name": "App Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "film",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "cYtdP",
+                  "name": "App Name",
+                  "fill": "#E2E8F0",
+                  "content": "云视听极光",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "JRXd5",
+              "name": "Dock Tile - 云视听小电视 (FOCUSED)",
+              "width": 200,
+              "height": 170,
+              "fill": "#FFFFFF2E",
+              "cornerRadius": 12,
+              "stroke": "#38BDF8",
+              "strokeWidth": 2.5,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#38BDF866",
+                "offset": {
+                  "x": 0,
+                  "y": 8
+                },
+                "blur": 24
+              },
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "d40pBp",
+                  "name": "Icon Box",
+                  "width": 76,
+                  "height": 76,
+                  "fill": "#EC4899",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "n7QKLD",
+                      "name": "App Icon",
+                      "width": 40,
+                      "height": 40,
+                      "icon": "tv",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "MdFDP",
+                  "name": "App Name",
+                  "fill": "#FFFFFF",
+                  "content": "云视听小电视",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "u8lwIk",
+              "name": "Dock Tile - 芒果 TV",
+              "width": 180,
+              "height": 160,
+              "fill": "#FFFFFF0A",
+              "cornerRadius": 12,
+              "stroke": "#FFFFFF1A",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MSR0b",
+                  "name": "Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#F97316",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "vDGbS",
+                      "name": "App Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "sparkles",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "OlYbr",
+                  "name": "App Name",
+                  "fill": "#E2E8F0",
+                  "content": "芒果 TV",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "isARB",
+              "name": "Dock Tile - 媒体播放器",
+              "width": 180,
+              "height": 160,
+              "fill": "#FFFFFF0A",
+              "cornerRadius": 12,
+              "stroke": "#FFFFFF1A",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lj3XH",
+                  "name": "Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#6366F1",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "CB29M",
+                      "name": "App Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "disc",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "cqkcH",
+                  "name": "App Name",
+                  "fill": "#E2E8F0",
+                  "content": "媒体播放器",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R4ezN",
+              "name": "Dock Tile - 系统设置",
+              "width": 180,
+              "height": 160,
+              "fill": "#FFFFFF0A",
+              "cornerRadius": 12,
+              "stroke": "#FFFFFF1A",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": 12,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fZk0C",
+                  "name": "Icon Box",
+                  "width": 68,
+                  "height": 68,
+                  "fill": "#64748B",
+                  "cornerRadius": 18,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0000004D",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 14
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "iAeQC",
+                      "name": "App Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "settings",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "EGs1c",
+                  "name": "App Name",
+                  "fill": "#E2E8F0",
+                  "content": "系统设置",
+                  "fontFamily": "Inter",
+                  "fontSize": 14
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "XpFi4",
+      "x": 2020,
+      "y": 0,
+      "name": "TV Home - All Apps Grid View (1080p)",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "#0B0E14",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "a0Ma0",
+          "x": 0,
+          "y": 0,
+          "name": "Grid Wallpaper Background",
+          "metadata": {
+            "type": "unsplash",
+            "username": "hdbernd",
+            "link": "https://unsplash.com/@hdbernd",
+            "author": "Bernd 📷 Dittrich"
+          },
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1684265749369-58083ade31c8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzYzOTZ8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "cover"
+          },
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "rectangle",
+          "id": "a17TD7",
+          "x": 0,
+          "y": 0,
+          "name": "Grid Deep Dim Scrim",
+          "fill": "#0B0E17D9",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "frame",
+          "id": "e3cGyx",
+          "x": 96,
+          "y": 60,
+          "name": "Grid Header Bar",
+          "width": 1728,
+          "height": 64,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "xXzfB",
+              "name": "Title & Back Box",
+              "gap": 20,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "vkqMV",
+                  "name": "Grid Title",
+                  "fill": "#FFFFFF",
+                  "content": "全部应用",
+                  "fontFamily": "Outfit",
+                  "fontSize": 32,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "tMZSd",
+                  "name": "App Count Badge",
+                  "fill": "#94A3B8",
+                  "content": "(已安装 24)",
+                  "fontFamily": "Inter",
+                  "fontSize": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n1NMoI",
+              "name": "Mini Status Box",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "z2YAqR",
+                  "name": "Wifi Mini Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "#38BDF8"
+                },
+                {
+                  "type": "text",
+                  "id": "QM2YZ",
+                  "name": "Mini Clock Text",
+                  "fill": "#CBD5E1",
+                  "content": "10:24",
+                  "fontFamily": "Outfit",
+                  "fontSize": 22,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "F94xO",
+          "x": 96,
+          "y": 156,
+          "name": "Apps Grid Rows Container",
+          "width": 1728,
+          "height": 860,
+          "layout": "vertical",
+          "gap": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "bfKxf",
+              "name": "Grid Row 1",
+              "width": 1728,
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uGlRo",
+                  "name": "App Tile - 云视听小电视",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "gC7Lq",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#EC4899",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "DbH9p",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "tv",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "h94SaQ",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "云视听小电视",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dRL2Z",
+                  "name": "App Tile - 爱奇艺 TV",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "mE264",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#10B981",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "v3nCjF",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "play",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "JFWjk",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "爱奇艺 TV",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VAOMZ",
+                  "name": "App Tile - 云视听极光",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "BfPFV",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#F59E0B",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "kyZRT",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "film",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "UiCX4",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "云视听极光",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "yf2VM",
+                  "name": "App Tile - 芒果 TV",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hfUyY",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#F97316",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "f1FIa",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "sparkles",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "ke2xW",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "芒果 TV",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "J0Mb7",
+                  "name": "App Tile - 优酷视频",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "w67HOL",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#0284C7",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "riGP8",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "video",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "x9kfE0",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "优酷视频",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Wb9Fm",
+                  "name": "App Tile - Kodi 影院 (FOCUSED)",
+                  "width": 268,
+                  "height": 230,
+                  "fill": "#FFFFFF2E",
+                  "cornerRadius": 12,
+                  "stroke": "#38BDF8",
+                  "strokeWidth": 2.5,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#38BDF866",
+                    "offset": {
+                      "x": 0,
+                      "y": 12
+                    },
+                    "blur": 28
+                  },
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "tIxIY",
+                      "name": "Icon Box",
+                      "width": 96,
+                      "height": 96,
+                      "fill": "#6366F1",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "g4Jf6",
+                          "name": "Icon",
+                          "width": 48,
+                          "height": 48,
+                          "icon": "disc",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "aaFOu",
+                      "name": "App Title",
+                      "fill": "#FFFFFF",
+                      "content": "Kodi 影院",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "dVVKQ",
+              "name": "Grid Row 2",
+              "width": 1728,
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "LW8ey",
+                  "name": "App Tile - MX 播放器",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "EQnLc",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#8B5CF6",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "v8ATz",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "circle-play",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Pp5i5",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "MX 播放器",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Z58rb2",
+                  "name": "App Tile - SmartTube",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jjgXP",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#EF4444",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ah526",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "youtube",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "kaMEE",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "SmartTube",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "nJE6m",
+                  "name": "App Tile - 网易云音乐",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "z7LL0",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#DC2626",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "mI03L",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "music",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "FZrtw",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "网易云音乐",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "KCXkV",
+                  "name": "App Tile - 文件管理",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "QaSoD",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#0D9488",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "QkOkv",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "folder",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "YPwSf",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "文件管理",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "IOFyD",
+                  "name": "App Tile - 电视图库",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "hiKdN",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#14B8A6",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "r9Dnf9",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "image",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "hj4BL",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "电视图库",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hPloq",
+                  "name": "App Tile - 系统设置",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K7PQS",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#64748B",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "u5ISTI",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "settings",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fk4ah",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "系统设置",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "W8NXgB",
+              "name": "Grid Row 3",
+              "width": 1728,
+              "gap": 24,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "XVqV8",
+                  "name": "App Tile - 乐播投屏",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "poUMp",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#3B82F6",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "ebiMx",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "cast",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "K37Cw",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "乐播投屏",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Y9NgHa",
+                  "name": "App Tile - 网络测速",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Zlz1B",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#EAB308",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "g91SM",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "gauge",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "x5ULhp",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "网络测速",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dr4RZ",
+                  "name": "App Tile - Emby 影视",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "loQTH",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#22C55E",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "FWfU9",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "clapperboard",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "RyopW",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "Emby 影视",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "pegBr",
+                  "name": "App Tile - TVBox",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "bZxP7",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#A855F7",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "yC8Ge",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "monitor-play",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "T8jSi0",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "TVBox",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "WLD16",
+                  "name": "App Tile - 一键清理",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "fdKGd",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#F43F5E",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "FmSuV",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "zap",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ojmze",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "一键清理",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xunyS",
+                  "name": "App Tile - 壁纸与设置",
+                  "width": 260,
+                  "height": 220,
+                  "fill": "#FFFFFF0A",
+                  "cornerRadius": 12,
+                  "stroke": "#FFFFFF14",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zDHX3",
+                      "name": "Icon Box",
+                      "width": 88,
+                      "height": 88,
+                      "fill": "#06B6D4",
+                      "cornerRadius": 24,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0000004D",
+                        "offset": {
+                          "x": 0,
+                          "y": 6
+                        },
+                        "blur": 16
+                      },
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "kgy4x",
+                          "name": "Icon",
+                          "width": 44,
+                          "height": 44,
+                          "icon": "sliders-horizontal",
+                          "library": "lucide",
+                          "fill": "#FFFFFF"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ql4DB",
+                      "name": "App Title",
+                      "fill": "#E2E8F0",
+                      "content": "壁纸与设置",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "500"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T2hDM",
+          "x": 1860,
+          "y": 180,
+          "name": "Scrollbar Track",
+          "width": 6,
+          "height": 720,
+          "fill": "#FFFFFF1A",
+          "cornerRadius": 3,
+          "layout": "none",
+          "children": [
+            {
+              "type": "rectangle",
+              "cornerRadius": 3,
+              "id": "goEis",
+              "x": 0,
+              "y": 40,
+              "name": "Scrollbar Thumb",
+              "fill": "#38BDF8",
+              "width": 6,
+              "height": 180
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "OoIwi",
+      "x": 0,
+      "y": 1180,
+      "name": "TV Home - Wallpaper & Display Settings (1080p)",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "#0B0E14",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "tI3wA",
+          "x": 0,
+          "y": 0,
+          "name": "Settings Wallpaper Backdrop",
+          "metadata": {
+            "type": "unsplash",
+            "username": "von_co",
+            "link": "https://unsplash.com/@von_co",
+            "author": "Ivana Cajina"
+          },
+          "fill": {
+            "type": "image",
+            "enabled": true,
+            "url": "https://images.unsplash.com/photo-1500534623283-312aade485b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+            "mode": "cover"
+          },
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "rectangle",
+          "id": "M5klp",
+          "x": 0,
+          "y": 0,
+          "name": "Dark Modal Backdrop Dimmer",
+          "fill": "#000000B3",
+          "width": 1920,
+          "height": 1080
+        },
+        {
+          "type": "frame",
+          "id": "XwPNB",
+          "x": 240,
+          "y": 70,
+          "name": "Settings Main Modal Dialog",
+          "width": 1440,
+          "height": 940,
+          "fill": "#131C28EE",
+          "cornerRadius": 32,
+          "stroke": "#FFFFFF26",
+          "strokeWidth": 1.5,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#00000099",
+            "offset": {
+              "x": 0,
+              "y": 24
+            },
+            "blur": 60
+          },
+          "layout": "vertical",
+          "gap": 22,
+          "padding": 36,
+          "children": [
+            {
+              "type": "frame",
+              "id": "LLncH",
+              "name": "Dialog Header",
+              "width": 1352,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "y5Mk63",
+                  "name": "Header Title Box",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "T5GL0s",
+                      "name": "Settings Icon",
+                      "width": 28,
+                      "height": 28,
+                      "icon": "sliders-horizontal",
+                      "library": "lucide",
+                      "fill": "#38BDF8"
+                    },
+                    {
+                      "type": "text",
+                      "id": "JwIet",
+                      "name": "Dialog Title",
+                      "fill": "#FFFFFF",
+                      "content": "桌面壁纸与显示设置",
+                      "fontFamily": "Outfit",
+                      "fontSize": 28,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "u7XfP",
+                  "name": "Close Tip Text",
+                  "fill": "#94A3B8",
+                  "content": "按遥控器 [返回键] 退出保存",
+                  "fontFamily": "Inter",
+                  "fontSize": 15
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I7KBwh",
+              "name": "Section 1 - Wallpaper Source",
+              "width": 1352,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K1dPw",
+                  "name": "Sec 1 Title",
+                  "fill": "#94A3B8",
+                  "content": "壁纸来源",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "zt1jS",
+                  "name": "Source Options Row",
+                  "width": 1352,
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "qgSFE",
+                      "name": "Source Option - 必应每日精选",
+                      "width": 440,
+                      "height": 104,
+                      "fill": "#38BDF820",
+                      "cornerRadius": 18,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 2,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "H2rgSr",
+                          "name": "Option Top Row",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GwqjJ",
+                              "name": "Option Title",
+                              "fill": "#38BDF8",
+                              "content": "必应每日精选",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "KaPeo",
+                              "name": "Tag Pill",
+                              "fill": "#38BDF833",
+                              "cornerRadius": 8,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "zDNbg",
+                                  "name": "Tag Text",
+                                  "fill": "#38BDF8",
+                                  "content": "联网",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "rJfJS",
+                          "name": "Option Desc",
+                          "fill": "#94A3B8",
+                          "content": "每日自动获取一张全球精选摄影，自动离线缓存",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h4Ez38",
+                      "name": "Source Option - 14 张内置自然精选",
+                      "width": 440,
+                      "height": 104,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 18,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Qy1G3",
+                          "name": "Option Top Row",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "k6FEeY",
+                              "name": "Option Title",
+                              "fill": "#F8FAFC",
+                              "content": "14 张内置自然精选",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "p7ABTw",
+                              "name": "Tag Pill",
+                              "fill": "#FFFFFF14",
+                              "cornerRadius": 8,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "K0MV2c",
+                                  "name": "Tag Text",
+                                  "fill": "#94A3B8",
+                                  "content": "离线",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "i96Ly2",
+                          "name": "Option Desc",
+                          "fill": "#94A3B8",
+                          "content": "零网络依赖、纯离线，支持随心切换与定时轮换",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Fh1K1",
+                      "name": "Source Option - 纯净极简渐变",
+                      "width": 440,
+                      "height": 104,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 18,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "iES37",
+                          "name": "Option Top Row",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gmfMU",
+                              "name": "Option Title",
+                              "fill": "#F8FAFC",
+                              "content": "纯净极简渐变",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "qXJKo",
+                              "name": "Tag Pill",
+                              "fill": "#FFFFFF14",
+                              "cornerRadius": 8,
+                              "padding": [
+                                4,
+                                8
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "s7VFAo",
+                                  "name": "Tag Text",
+                                  "fill": "#94A3B8",
+                                  "content": "省电",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": "500"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "qS4Ot",
+                          "name": "Option Desc",
+                          "fill": "#94A3B8",
+                          "content": "深冷色纯代码绘制，0 内存占用，极速老电视专用",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "W8MMnk",
+              "name": "Section 2 - Wallpaper Resolution Tier",
+              "width": 1352,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "aB1JK",
+                  "name": "Sec 2 Title",
+                  "fill": "#94A3B8",
+                  "content": "壁纸采样分辨率 (低配电视按需选择)",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "aEgzz",
+                  "name": "Resolution Options Row",
+                  "width": 1352,
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vgxip",
+                      "name": "Res Card - 720p (1280×720)",
+                      "width": 440,
+                      "height": 110,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 18,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "quEkS",
+                          "name": "Res Top",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "KqVOU",
+                              "name": "Res Label",
+                              "fill": "#FFFFFF",
+                              "content": "○ 720p (1280×720)",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "PO5eB",
+                              "name": "Mem Badge",
+                              "fill": "#64748B",
+                              "content": "内存 ~2.8 MB",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "Mfa6e",
+                          "name": "Res Recommendation",
+                          "fill": "#94A3B8",
+                          "content": "强烈推荐 512MB~1GB 老设备",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ALxGw",
+                      "name": "Res Card - 1080p (1920×1080) (FOCUSED)",
+                      "width": 440,
+                      "height": 110,
+                      "fill": "#38BDF826",
+                      "cornerRadius": 18,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 2.5,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#38BDF84D",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 20
+                      },
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "rVCtL",
+                          "name": "Res Top",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "UDmeB",
+                              "name": "Res Label",
+                              "fill": "#38BDF8",
+                              "content": "● 1080p (1920×1080)",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "QAG5G",
+                              "name": "Mem Badge",
+                              "fill": "#7DD3FC",
+                              "content": "内存 ~8.2 MB",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "LfwLm",
+                          "name": "Res Recommendation",
+                          "fill": "#E2E8F0",
+                          "content": "标准全高清 · 画质与速度均衡",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ayR1f",
+                      "name": "Res Card - 4K (3840×2160)",
+                      "width": 440,
+                      "height": 110,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 18,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "eDf8G",
+                          "name": "Res Top",
+                          "width": 400,
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "re3sF",
+                              "name": "Res Label",
+                              "fill": "#FFFFFF",
+                              "content": "○ 4K (3840×2160)",
+                              "fontFamily": "Inter",
+                              "fontSize": 17,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "r9q1ZL",
+                              "name": "Mem Badge",
+                              "fill": "#64748B",
+                              "content": "内存 ~33 MB",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "S6Byi",
+                          "name": "Res Recommendation",
+                          "fill": "#94A3B8",
+                          "content": "超高清细腻 · 建议 2GB+ 现代电视",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SecLayout_Grid",
+              "name": "Section 3 - Desktop Layout & Dock Slots",
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SecLayout_Title",
+                  "name": "Section Title",
+                  "fill": "#F1F5F9",
+                  "content": "桌面布局与常用栏",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "SecLayout_Row1",
+                  "name": "Columns Row",
+                  "gap": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TxtColsLabel",
+                      "name": "Label",
+                      "fill": "#94A3B8",
+                      "content": "网格列数：",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "width": 100
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipCol4",
+                      "name": "Chip 4 Columns",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tCol4",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "4 列",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipCol5",
+                      "name": "Chip 5 Columns",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tCol5",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "5 列",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipCol6",
+                      "name": "Chip 6 Columns (Active)",
+                      "fill": "#38BDF826",
+                      "cornerRadius": 14,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 1.5,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tCol6",
+                          "name": "Text",
+                          "fill": "#38BDF8",
+                          "content": "6 列 (默认)",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipCol7",
+                      "name": "Chip 7 Columns",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tCol7",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "7 列",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipCol8",
+                      "name": "Chip 8 Columns",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tCol8",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "8 列",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SecLayout_Row2",
+                  "name": "Dock Slots & Clock Row",
+                  "gap": 20,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "TxtSlotsLabel",
+                      "name": "Label",
+                      "fill": "#94A3B8",
+                      "content": "常用栏槽位：",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "width": 100
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipSlot4",
+                      "name": "Chip 4 Slots",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tSlot4",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "4 个",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipSlot5",
+                      "name": "Chip 5 Slots",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tSlot5",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "5 个",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipSlot6",
+                      "name": "Chip 6 Slots (Active)",
+                      "fill": "#38BDF826",
+                      "cornerRadius": 14,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 1.5,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tSlot6",
+                          "name": "Text",
+                          "fill": "#38BDF8",
+                          "content": "6 个 (默认)",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "SpacerSlots",
+                      "name": "Spacer",
+                      "width": 30,
+                      "height": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "TxtClockLabel",
+                      "name": "Label",
+                      "fill": "#94A3B8",
+                      "content": "桌面时钟：",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "width": 90
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipClockOn",
+                      "name": "Chip Clock ON (Active)",
+                      "fill": "#38BDF826",
+                      "cornerRadius": 14,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 1.5,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tClockOn",
+                          "name": "Text",
+                          "fill": "#38BDF8",
+                          "content": "显示时钟",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ChipClockOff",
+                      "name": "Chip Clock OFF",
+                      "fill": "#FFFFFF0D",
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF1F",
+                      "strokeWidth": 1,
+                      "padding": [
+                        8,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "tClockOff",
+                          "name": "Text",
+                          "fill": "#CBD5E1",
+                          "content": "隐藏时钟",
+                          "fontFamily": "Inter",
+                          "fontSize": 15
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Gz3Ql",
+              "name": "Section 3 - Dock Style & Performance Options",
+              "width": 1352,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "MQafT",
+                  "name": "Sec 3 Title",
+                  "fill": "#94A3B8",
+                  "content": "底部常用 Dock 视觉样式 (老硬件性能降级)",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Gc9Bd",
+                  "name": "Dock Style Options Row",
+                  "width": 1352,
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "pzTZM",
+                      "name": "Dock Style - 磨砂毛玻璃",
+                      "width": 440,
+                      "height": 94,
+                      "fill": "#38BDF81A",
+                      "cornerRadius": 16,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 2,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "o3wX8",
+                          "name": "Style Name",
+                          "fill": "#38BDF8",
+                          "content": "✓ 磨砂毛玻璃",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "S61P2",
+                          "name": "Style Desc",
+                          "fill": "#94A3B8",
+                          "content": "高光边框 + 实时背景模糊 (需 GPU 支持)",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "O88U8m",
+                      "name": "Dock Style - 半透磨砂黑 (推荐)",
+                      "width": 440,
+                      "height": 94,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 16,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "BeE81",
+                          "name": "Style Name",
+                          "fill": "#F1F5F9",
+                          "content": "  半透磨砂黑 (推荐)",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "EHADZ",
+                          "name": "Style Desc",
+                          "fill": "#94A3B8",
+                          "content": "18% 半透明纯黑底板，极低 GPU 负担，视觉优雅",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eZMFy",
+                      "name": "Dock Style - 极速极简",
+                      "width": 440,
+                      "height": 94,
+                      "fill": "#FFFFFF08",
+                      "cornerRadius": 16,
+                      "stroke": "#FFFFFF14",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": [
+                        14,
+                        18
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PCn4k",
+                          "name": "Style Name",
+                          "fill": "#F1F5F9",
+                          "content": "  极速极简",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zhCLQ",
+                          "name": "Style Desc",
+                          "fill": "#94A3B8",
+                          "content": "无底板直接悬浮，老旧单核/双核电视 0 额外绘制消耗",
+                          "fontFamily": "Inter",
+                          "fontSize": 13
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Lpyz3",
+              "name": "Section 4 - Built-in Wallpapers Gallery Strip",
+              "width": 1352,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ekmxR",
+                  "name": "Sec 4 Title",
+                  "fill": "#94A3B8",
+                  "content": "14 张内置风景与航拍壁纸快速预览 (离线打包)",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "q7qnj",
+                  "name": "Thumbnails Row",
+                  "width": 1352,
+                  "gap": 14,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "YKjls",
+                      "name": "Thumb Card - 01 罗弗敦群岛",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "emildsn",
+                        "link": "https://unsplash.com/@emildsn",
+                        "author": "Emil Dosen"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1635941830012-aa4e2f9187ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#38BDF8",
+                      "strokeWidth": 2.5,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "NPXNF",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "I22Ti",
+                              "name": "Thumb Label",
+                              "fill": "#38BDF8",
+                              "content": "01 罗弗敦群岛",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "bFaSf",
+                      "name": "Thumb Card - 02 优胜美地",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "tulane45ryan",
+                        "link": "https://unsplash.com/@tulane45ryan",
+                        "author": "Ryan Harvey"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1531258835363-bd008b0ac46c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF20",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "pL0M4",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "b58Ja",
+                              "name": "Thumb Label",
+                              "fill": "#E2E8F0",
+                              "content": "02 优胜美地",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "hiHv8",
+                      "name": "Thumb Card - 03 冰岛黑沙滩",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "robertarnar",
+                        "link": "https://unsplash.com/@robertarnar",
+                        "author": "Robert Arnar"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1693479140895-bf7cfa45a99b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF20",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "W2Nkg",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "tcBHq",
+                              "name": "Thumb Label",
+                              "fill": "#E2E8F0",
+                              "content": "03 冰岛黑沙滩",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V3CYFv",
+                      "name": "Thumb Card - 04 瑞士雪山",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "buduczki",
+                        "link": "https://unsplash.com/@buduczki",
+                        "author": "Norbert Buduczki"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1712595245806-636177b68513?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF20",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "kygyC",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "W0UtSb",
+                              "name": "Thumb Label",
+                              "fill": "#E2E8F0",
+                              "content": "04 瑞士雪山",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "fm2uc",
+                      "name": "Thumb Card - 05 夏威夷蔚蓝",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "loganvoss",
+                        "link": "https://unsplash.com/@loganvoss",
+                        "author": "Logan Voss"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1727309578843-ec6e7a7f0ca9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF20",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "E1MzDl",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "TJw4l",
+                              "name": "Thumb Label",
+                              "fill": "#E2E8F0",
+                              "content": "05 夏威夷蔚蓝",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DROxD",
+                      "name": "Thumb Card - 06 更多 9 张...",
+                      "metadata": {
+                        "type": "unsplash",
+                        "username": "davidgeere",
+                        "link": "https://unsplash.com/@davidgeere",
+                        "author": "David Geere"
+                      },
+                      "clip": true,
+                      "width": 212,
+                      "height": 120,
+                      "fill": {
+                        "type": "image",
+                        "enabled": true,
+                        "url": "https://images.unsplash.com/photo-1584592902605-c96550ca424d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3OTMzNzY0NTN8&ixlib=rb-4.1.0&q=80&w=1080",
+                        "mode": "cover"
+                      },
+                      "cornerRadius": 14,
+                      "stroke": "#FFFFFF20",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "justifyContent": "end",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "UpLun",
+                          "name": "Thumb Label Box",
+                          "width": 212,
+                          "height": 32,
+                          "fill": "#000000B3",
+                          "padding": [
+                            6,
+                            10
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "GCjOW",
+                              "name": "Thumb Label",
+                              "fill": "#E2E8F0",
+                              "content": "06 更多 9 张...",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SettingsModalFooter",
+              "name": "Dialog Footer Actions",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BtnSysSettings",
+                  "name": "Open Android System Settings Button",
+                  "fill": "#FFFFFF1A",
+                  "cornerRadius": 16,
+                  "stroke": "#FFFFFF33",
+                  "strokeWidth": 1,
+                  "padding": [
+                    10,
+                    24
+                  ],
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "icoSysSet",
+                      "name": "Settings Icon",
+                      "icon": "settings",
+                      "library": "lucide",
+                      "width": 18,
+                      "height": 18,
+                      "fill": "#38BDF8"
+                    },
+                    {
+                      "type": "text",
+                      "id": "txtSysSet",
+                      "name": "Text",
+                      "fill": "#FFFFFF",
+                      "content": "打开电视系统原生设置",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "txtBackHint",
+                  "name": "Back Hint",
+                  "fill": "#64748B",
+                  "content": "按遥控器 [返回键] 保存设置并退出",
+                  "fontFamily": "Inter",
+                  "fontSize": 15
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IMimZ",
+      "x": 2020,
+      "y": 1180,
+      "name": "AerialClean TV - Spec & Architecture Guidelines (1080p)",
+      "clip": true,
+      "width": 1920,
+      "height": 1080,
+      "fill": "#0F172A",
+      "layout": "vertical",
+      "gap": 32,
+      "padding": [
+        48,
+        64
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "wiIR7",
+          "name": "Spec Header",
+          "width": 1792,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "fZxqq",
+              "name": "Title Group",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "adFoE",
+                  "name": "Spec Main Title",
+                  "fill": "#FFFFFF",
+                  "content": "AerialClean TV 桌面设计规范与架构落地方案",
+                  "fontFamily": "Outfit",
+                  "fontSize": 32,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "P1oB9R",
+                  "name": "Spec Sub Title",
+                  "fill": "#94A3B8",
+                  "content": "静态壁纸体系 · 分辨率分级 · 遥控器单层焦点 · Android 4.4 性能降级策略",
+                  "fontFamily": "Inter",
+                  "fontSize": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "iyrtD",
+              "name": "Version Badge",
+              "fill": "#38BDF820",
+              "cornerRadius": 12,
+              "stroke": "#38BDF880",
+              "strokeWidth": 1,
+              "padding": [
+                8,
+                16
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dMHyj",
+                  "name": "Badge Text",
+                  "fill": "#38BDF8",
+                  "content": "AerialClean Lite · v2.0 Blueprint",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "werfs",
+          "name": "Bento Spec Grid",
+          "width": 1792,
+          "height": 840,
+          "gap": 28,
+          "children": [
+            {
+              "type": "frame",
+              "id": "B76f5W",
+              "name": "Bento Column 1",
+              "width": 882,
+              "layout": "vertical",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "dYKw5",
+                  "name": "Card 1 - Wallpaper Engine",
+                  "width": 882,
+                  "height": 406,
+                  "fill": "#1E293B",
+                  "cornerRadius": 24,
+                  "stroke": "#334155",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    28,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w2XjXD",
+                      "name": "Card 1 Title",
+                      "fill": "#38BDF8",
+                      "content": "1. 静态壁纸与三档分辨率实现方案",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "b3ykp",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 必应每日精选：后台异步任务拉取官方 Bing Image API，优先从本地文件缓存读取，断网秒开 0 阻塞。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "DG0ee",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 14 张内置壁纸：内置高清航拍与自然风光，离线零网络依赖，支持定时每小时/每天自动轮换。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "jOGEH",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 720p 分辨率 (省内存)：针对 512MB~1GB 内存老设备，采用 inSampleSize 降采样到 1280×720，内存仅 2.8MB，避免被后台 LMK 强杀。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "NV5hg",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 1080p 分辨率 (均衡)：1920×1080 全高清显示，内存 ~8.2MB，色彩平滑细腻，兼顾画质与启动速度。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "zxVaG",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 4K 分辨率 (超清)：3840×2160，内存 ~33MB，适合 2GB+ 现代高端大屏电视。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SVJXI",
+                  "name": "Card 2 - Remote Focus Engine",
+                  "width": 882,
+                  "height": 406,
+                  "fill": "#1E293B",
+                  "cornerRadius": 24,
+                  "stroke": "#334155",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    28,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "RWq6D",
+                      "name": "Card 2 Title",
+                      "fill": "#A855F7",
+                      "content": "2. 电视遥控器 D-Pad 单层导航与手感",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "qDQdv",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 首屏双层结构：上方大时钟/日期，下方常用应用 Dock 玻璃底板，按遥控器 [下键] 平滑滚动到全部应用。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "PGA4J",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 极致可见焦点：焦点态放大 1.08x，带有 #38BDF8 天空蓝呼吸光晕和白色立体底板，在 3 米客厅一目了然。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "a3OONS",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 边界阻断防丢焦：Dock 左右边缘显式设定 nextFocus，禁止遥控器连击时光标跳飞或陷入空节点。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "zFBrf",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 遥控器快捷键：[MENU 菜单键] 呼出壁纸与设置面板；[OK 键] 短按启动、长按呼出管理；[BACK 键] 从网格返回 Dock 首屏。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z7Lpi",
+              "name": "Bento Column 2",
+              "width": 882,
+              "layout": "vertical",
+              "gap": 28,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lcRfm",
+                  "name": "Card 3 - Glass Dock Fallback",
+                  "width": 882,
+                  "height": 406,
+                  "fill": "#1E293B",
+                  "cornerRadius": 24,
+                  "stroke": "#334155",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    28,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "lVZQr",
+                      "name": "Card 3 Title",
+                      "fill": "#10B981",
+                      "content": "3. 玻璃底板 (Glass Dock) 性能与替换策略",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Q3U03",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 问题根源：Android 4.4 缺少 RenderEffect，软件模拟高斯模糊会严重拖慢帧率并引起掉帧。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "vC9Nu",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 默认替代方案 (推荐)：采用『半透深色圆角板』——85% 纯黑透明底板 + 顶部 1.5px 白色高光描边，纯原生 Canvas 硬件加速直出，0 模糊开销，老电视稳跑 60fps。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "Mf24A",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 渐变伪模糊 (方案二)：预先烘焙双层半透明径向/线性着色器，形成自然的暗角玻璃质感。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "L9UO6",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 动态降级检测：根据 ActivityManager.getMemoryClass() 与 SDK 版本自动建议开启『半透磨砂黑』或『极简无底板』模式。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Jggcn",
+                  "name": "Card 4 - Memory & APK Size Budget",
+                  "width": 882,
+                  "height": 406,
+                  "fill": "#1E293B",
+                  "cornerRadius": 24,
+                  "stroke": "#334155",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    28,
+                    32
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jXORA",
+                      "name": "Card 4 Title",
+                      "fill": "#F59E0B",
+                      "content": "4. 内存控制与体积预算 (质量基线保证)",
+                      "fontFamily": "Outfit",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "b20cy",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 极致体积：14 张内置壁纸采用 WebP 75 质量压缩打包，单图 < 120KB，14 张总计仅约 1.5MB，APK 体积依旧控制在极限范围内。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "tqkZS",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 零内存泄漏：全屏壁纸只保留单个活跃 Bitmap 引用，切换壁纸前主动 recycle() 旧位图，杜绝低内存设备 OOM。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "XAYCx",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 权限控制：仅在用户开启必应壁纸时使用系统标准 HttpURLConnection 下载，保持无后门、无遥测纯净架构。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    },
+                    {
+                      "type": "text",
+                      "id": "iS8ax",
+                      "name": "Point Text",
+                      "fill": "#CBD5E1",
+                      "content": "● 闪电冷启动：冷启动时首帧优先读取当前壁纸本地小缓存或渐变色，< 1.0s 内完成首屏绘制。",
+                      "lineHeight": 1.5,
+                      "fontFamily": "Inter",
+                      "fontSize": 14
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fileToken": "1b192aae-49a6-4467-a36f-3299de0cc814"
+}

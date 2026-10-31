@@ -69,20 +69,36 @@ public final class AppRepository {
         return result;
     }
 
-    /** dock 内容：严格按保存的顺序，跳过已卸载的，最多 {@code dockCount} 个。 */
+    /** dock 内容：按保存的顺序挑选有效应用，若不足 dockCount 则从 all 自动补齐，最多 {@code dockCount} 个。 */
     public static List<AppEntry> dock(List<AppEntry> all, List<String> dockPkgs, int dockCount) {
         Map<String, AppEntry> byPkg = new HashMap<>();
         for (AppEntry entry : all) {
             byPkg.put(entry.pkg, entry);
         }
-        List<AppEntry> result = new ArrayList<>(Math.min(dockCount, dockPkgs.size()));
-        for (String pkg : dockPkgs) {
-            if (result.size() >= dockCount) {
-                break;
+        List<AppEntry> result = new ArrayList<>(dockCount);
+        Set<String> added = new java.util.HashSet<>();
+        if (dockPkgs != null) {
+            for (String pkg : dockPkgs) {
+                if (result.size() >= dockCount) {
+                    break;
+                }
+                AppEntry entry = byPkg.get(pkg);
+                if (entry != null && !added.contains(pkg)) {
+                    result.add(entry);
+                    added.add(pkg);
+                }
             }
-            AppEntry entry = byPkg.get(pkg);
-            if (entry != null) {
-                result.add(entry);
+        }
+        // 如果有效应用数依然不足 dockCount，从 all 中挑选未添加的应用自动补齐
+        if (result.size() < dockCount) {
+            for (AppEntry entry : all) {
+                if (result.size() >= dockCount) {
+                    break;
+                }
+                if (!added.contains(entry.pkg)) {
+                    result.add(entry);
+                    added.add(entry.pkg);
+                }
             }
         }
         return result;

@@ -1,0 +1,3 @@
+{"file": ".trellis/tasks/10-31-static-wallpaper-and-dock-redesign/prd.md", "reason": "A1-A8 验收标准与范围边界"}
+{"file": ".trellis/spec/lite/api19-compatibility.md", "reason": "检查 NewApi 静态门禁与 API 19 兼容性"}
+{"file": ".trellis/spec/lite/quality-guidelines.md", "reason": "检查内存占用与启动性能指标"}

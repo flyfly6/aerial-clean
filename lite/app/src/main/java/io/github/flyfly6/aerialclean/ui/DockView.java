@@ -41,9 +41,31 @@ public class DockView extends RecyclerView {
 
     public void submit(List<AppEntry> entries) {
         adapter.setItems(entries);
+        requestLayout();
     }
 
     public void clear() {
         adapter.setItems(Collections.<AppEntry>emptyList());
+        requestLayout();
+    }
+
+    @Override
+    protected void onMeasure(int widthSpec, int heightSpec) {
+        int count = adapter.getItemCount();
+        if (count > 0) {
+            int tileWidth = getResources().getDimensionPixelSize(R.dimen.dock_tile_width);
+            int tileGap = getResources().getDimensionPixelSize(R.dimen.tile_gap);
+            int exactWidth = count * (tileWidth + tileGap * 2) + getPaddingLeft() + getPaddingRight();
+            widthSpec = MeasureSpec.makeMeasureSpec(exactWidth, MeasureSpec.EXACTLY);
+        }
+        int tileHeight = getResources().getDimensionPixelSize(R.dimen.tile_height);
+        int exactHeight = tileHeight + getPaddingTop() + getPaddingBottom();
+        heightSpec = MeasureSpec.makeMeasureSpec(exactHeight, MeasureSpec.EXACTLY);
+        super.onMeasure(widthSpec, heightSpec);
+    }
+
+    public void setDockStyle(int style) {
+        // 背景由外层 dock_container 统一绘制，自身保持透明，避免双层绘制导致不透明度翻倍
+        setBackgroundColor(0);
     }
 }

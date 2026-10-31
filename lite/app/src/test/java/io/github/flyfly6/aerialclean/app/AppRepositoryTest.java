@@ -66,8 +66,16 @@ public class AppRepositoryTest {
         List<String> saved = Arrays.asList("com.c", "com.gone", "com.a", "com.b");
 
         assertEquals(Arrays.asList("com.c", "com.a", "com.b"), pkgs(AppRepository.dock(all, saved, 5)));
-        // 截断而不是补足
         assertEquals(Arrays.asList("com.c", "com.a"), pkgs(AppRepository.dock(all, saved, 2)));
+    }
+
+    @Test
+    public void dockFillsFromAllWhenSavedIsShorterThanCount() {
+        List<AppEntry> all = Arrays.asList(app("com.a", "A"), app("com.b", "B"), app("com.c", "C"));
+        List<String> saved = Collections.singletonList("com.c");
+
+        // saved 只有 1 个，但要求 3 个槽位，自动补齐剩余 2 个应用
+        assertEquals(Arrays.asList("com.c", "com.a", "com.b"), pkgs(AppRepository.dock(all, saved, 3)));
     }
 
     @Test

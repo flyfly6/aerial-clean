@@ -23,4 +23,23 @@
     <string name="net_disconnected">未连接</string>
     <string name="net_wifi">Wi-Fi</string>
     <string name="net_ethernet">有线</string>
+    <string name="settings_wallpaper_source">壁纸来源：%1$s</string>
+    <string name="settings_wallpaper_source_title">选择壁纸来源</string>
+    <string name="settings_wallpaper_res">壁纸分辨率：%1$s</string>
+    <string name="settings_wallpaper_res_title">选择壁纸分辨率 (低配电视按需选择)</string>
+    <string name="settings_wallpaper_builtin">内置自然壁纸：%1$s</string>
+    <string name="settings_wallpaper_builtin_title">选择内置自然壁纸</string>
+    <string name="settings_dock_style">常用栏底板样式：%1$s</string>
+    <string name="settings_dock_style_title">选择底板样式 (老设备性能优化)</string>
+    <string name="source_bing_daily">必应每日精选 (支持离线缓存)</string>
+    <string name="source_built_in">14 张内置自然风景 (离线零网络)</string>
+    <string name="source_pure_gradient">纯净极简渐变 (老电视极速)</string>
+    <string name="res_720p">720p (极速省内存，推荐 512MB~1GB 老设备)</string>
+    <string name="res_1080p">1080p (全高清均衡，画质细腻)</string>
+    <string name="res_4k">4K (超清震撼，推荐 2GB+ 现代电视)</string>
+    <string name="dock_style_glass">磨砂毛玻璃</string>
+    <string name="dock_style_translucent">半透磨砂黑 (推荐老电视，0 GPU 额外开销)</string>
+    <string name="dock_style_minimal">极速极简 (无底板悬浮)</string>
+    <string name="prompt_scroll_down">全部应用 ▾</string>
+    <string name="prompt_return_dock">↑ 返回常用应用</string>
 </resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 状态栏右上角壁纸信息胶囊：半透黑底板 + 1dp 微弱描边，圆角 20dp -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" />
+    <solid android:color="#4D000000" />
+    <stroke
+        android:width="1dp"
+        android:color="#33FFFFFF" />
+</shape>
